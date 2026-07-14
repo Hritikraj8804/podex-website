@@ -11,7 +11,7 @@ const features = [
   {
     icon: Search,
     title: "Cluster Explorer",
-    description: "Browse 9 resource types — Pods, Deployments, Services, Nodes, ConfigMaps, Secrets, StatefulSets, DaemonSets, and Events with full YAML inspection.",
+    description: "Browse 9 resource types  Pods, Deployments, Services, Nodes, ConfigMaps, Secrets, StatefulSets, DaemonSets, and Events with full YAML inspection.",
     gradient: "from-cyan-500 to-cyan-600",
     border: "hover:border-cyan-500/30",
   },
@@ -25,7 +25,7 @@ const features = [
   {
     icon: Terminal,
     title: "Live Debugging",
-    description: "SSE log streaming and WebSocket-powered interactive terminal shells inside any container — all from your browser.",
+    description: "SSE log streaming and WebSocket-powered interactive terminal shells inside any container  all from your browser.",
     gradient: "from-emerald-500 to-emerald-600",
     border: "hover:border-emerald-500/30",
   },

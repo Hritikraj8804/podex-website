@@ -14,7 +14,7 @@ export function Hero() {
         <div className="flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center py-24 lg:py-32">
           <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm font-medium text-primary">
             <span className="flex h-2 w-2 rounded-full bg-primary" />
-            v1.2.0 — Port Forwarding, AI Command Generator, Pod Status Matrix
+            v1.2.0  Port Forwarding, AI Command Generator, Pod Status Matrix
           </div>
 
           <div className="relative flex items-center justify-center gap-6">
@@ -35,7 +35,7 @@ export function Hero() {
 
           <p className="mt-6 max-w-2xl text-center text-lg leading-relaxed text-muted-foreground">
             Explore clusters, design architectures with drag-and-drop, stream logs,
-            port-forward services, generate kubectl commands with AI — all from your browser.
+            port-forward services, generate kubectl commands with AI  all from your browser.
             Zero config, just{" "}
             <code className="rounded bg-primary/10 px-1.5 py-0.5 font-mono text-sm text-primary">
               docker compose up
