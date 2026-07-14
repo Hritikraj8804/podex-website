@@ -10,9 +10,9 @@ export default function Home() {
   return (
     <main className="flex flex-col">
       <Hero />
-      <Features />
       <HowItWorks />
       <Screenshots />
+      <Features />
       <Pricing />
       <FAQ />
       <CTA />
