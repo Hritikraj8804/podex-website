@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Terminal, ArrowRight } from "lucide-react";
 import { DashboardMockup } from "@/components/illustrations/app-mockups";
 
@@ -14,17 +15,29 @@ export function Hero() {
         <div className="flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center py-24 lg:py-32">
           <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm font-medium text-primary">
             <span className="flex h-2 w-2 rounded-full bg-primary" />
-            v0.1.0  Free and Open Source
+            v1.2.0 — Port Forwarding, AI Command Generator, Pod Status Matrix
           </div>
 
-          <h1 className="max-w-4xl text-center text-5xl font-bold leading-tight tracking-tight sm:text-6xl lg:text-7xl">
-            Your Kubernetes{" "}
-            <span className="text-gradient">Visual Playground</span>
-          </h1>
+          <div className="relative flex items-center justify-center">
+            <div className="absolute -left-20 top-0 hidden lg:block">
+              <Image
+                src="/poddy.png"
+                alt="Poddy mascot"
+                width={180}
+                height={180}
+                className="animate-float"
+              />
+            </div>
+            <h1 className="max-w-4xl text-center text-5xl font-bold leading-tight tracking-tight sm:text-6xl lg:text-7xl">
+              Your Kubernetes{" "}
+              <span className="text-gradient">Visual Playground</span>
+            </h1>
+          </div>
 
           <p className="mt-6 max-w-2xl text-center text-lg leading-relaxed text-muted-foreground">
-            Explore clusters, design architectures with drag-and-drop, stream logs, and learn K8s 
-            all from your browser. Zero config, just{" "}
+            Explore clusters, design architectures with drag-and-drop, stream logs,
+            port-forward services, generate kubectl commands with AI — all from your browser.
+            Zero config, just{" "}
             <code className="rounded bg-primary/10 px-1.5 py-0.5 font-mono text-sm text-primary">
               docker compose up
             </code>

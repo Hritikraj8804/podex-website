@@ -1,47 +1,61 @@
-import { LayoutDashboard, Puzzle, Bot, Terminal, GitBranch, Search } from "lucide-react";
+import { LayoutDashboard, Puzzle, Bot, Terminal, GitBranch, Search, ArrowLeftRight, Wand2 } from "lucide-react";
 
 const features = [
   {
     icon: LayoutDashboard,
     title: "Visual Dashboard",
-    description: "Real-time cluster health with donut charts, metrics counters, and namespace filtering. Pulse check your cluster at a glance.",
+    description: "Real-time cluster health with gradient hero, color-coded cards, Pod Status Matrix, and a Needs-Attention panel for quick triage.",
     gradient: "from-blue-500 to-blue-600",
-    border: "hover:border-blue-500/30 hover:shadow-blue-500/5",
+    border: "hover:border-blue-500/30",
+  },
+  {
+    icon: Search,
+    title: "Cluster Explorer",
+    description: "Browse 9 resource types — Pods, Deployments, Services, Nodes, ConfigMaps, Secrets, StatefulSets, DaemonSets, and Events with full YAML inspection.",
+    gradient: "from-cyan-500 to-cyan-600",
+    border: "hover:border-cyan-500/30",
   },
   {
     icon: Puzzle,
     title: "Arena Playground",
-    description: "Drag-and-drop canvas to wire K8s blocks together. Auto-generate valid YAML manifests from your visual design.",
-    gradient: "from-cyan-500 to-cyan-600",
-    border: "hover:border-cyan-500/30 hover:shadow-cyan-500/5",
-  },
-  {
-    icon: Bot,
-    title: "AI Concept Tutor",
-    description: "Ask 'What is a Service?' and get real-world analogies plus crash-loop diagnosis with fix suggestions  no API key needed.",
+    description: "Drag-and-drop React Flow canvas to wire K8s blocks together. Auto-generate valid YAML manifests from your visual design.",
     gradient: "from-violet-500 to-violet-600",
-    border: "hover:border-violet-500/30 hover:shadow-violet-500/5",
+    border: "hover:border-violet-500/30",
   },
   {
     icon: Terminal,
     title: "Live Debugging",
-    description: "SSE log streaming and WebSocket-powered interactive terminal shells inside any container  all from your browser.",
+    description: "SSE log streaming and WebSocket-powered interactive terminal shells inside any container — all from your browser.",
     gradient: "from-emerald-500 to-emerald-600",
-    border: "hover:border-emerald-500/30 hover:shadow-emerald-500/5",
+    border: "hover:border-emerald-500/30",
+  },
+  {
+    icon: Wand2,
+    title: "AI Command Generator",
+    description: "Describe what you need in plain English and get a ready-to-run kubectl command. No more memorizing CLI flags.",
+    gradient: "from-amber-500 to-amber-600",
+    border: "hover:border-amber-500/30",
+  },
+  {
+    icon: ArrowLeftRight,
+    title: "Port Forwarding",
+    description: "One-click port forwarding with PID subprocess management. Forward service ports directly from your browser.",
+    gradient: "from-rose-500 to-rose-600",
+    border: "hover:border-rose-500/30",
   },
   {
     icon: GitBranch,
     title: "Topology View",
     description: "Dynamic SVG map showing relationships between Ingress, Services, Deployments, and Pods. Drag, zoom, pan, and filter.",
     gradient: "from-amber-500 to-amber-600",
-    border: "hover:border-amber-500/30 hover:shadow-amber-500/5",
+    border: "hover:border-amber-500/30",
   },
   {
-    icon: Search,
-    title: "Cluster Explorer",
-    description: "Browse Pods, Deployments, and Services with inline scale, restart, and delete controls. Full YAML inspection.",
-    gradient: "from-rose-500 to-rose-600",
-    border: "hover:border-rose-500/30 hover:shadow-rose-500/5",
+    icon: Bot,
+    title: "AI Concept Tutor & Troubleshooter",
+    description: "Ask 'What is a Service?' and get real-world analogies with crash-loop diagnosis. Built-in mock providers work offline, no API key needed.",
+    gradient: "from-violet-500 to-violet-600",
+    border: "hover:border-violet-500/30",
   },
 ];
 
@@ -63,7 +77,7 @@ export function Features() {
           </p>
         </div>
 
-        <div className="mx-auto mt-16 grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto mt-16 grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {features.map((feature) => {
             const Icon = feature.icon;
             return (
