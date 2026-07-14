@@ -5,6 +5,7 @@ import { marked } from "marked";
 import { docs } from "@/lib/content-data";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { DocSidebar } from "@/components/docs-sidebar";
+import { DocContent } from "@/components/doc-content";
 
 export function generateStaticParams() {
   return docs.map((doc) => ({ slug: doc.slug }));
@@ -62,23 +63,7 @@ export default async function DocPage({
               </p>
             </div>
 
-            <article
-              className="prose prose-neutral dark:prose-invert max-w-none
-                prose-headings:scroll-mt-24 prose-headings:font-semibold
-                prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-h2:text-foreground
-                prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3 prose-h3:text-foreground
-                prose-p:text-muted-foreground prose-p:leading-relaxed
-                prose-a:text-primary prose-a:no-underline hover:prose-a:underline
-                prose-strong:text-foreground
-                prose-code:text-primary prose-code:bg-primary/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:font-normal prose-code:before:content-none prose-code:after:content-none
-                prose-pre:bg-surface prose-pre:border prose-pre:border-border prose-pre:rounded-xl
-                prose-li:text-muted-foreground
-                prose-table:border-collapse
-                prose-th:text-foreground prose-th:border-b prose-th:border-border prose-th:pb-2 prose-th:text-left
-                prose-td:text-muted-foreground prose-td:border-b prose-td:border-border prose-td:py-2
-                prose-hr:border-border"
-              dangerouslySetInnerHTML={{ __html: marked.parse(doc.content) }}
-            />
+            <DocContent html={marked.parse(doc.content) as string} />
 
             {/* Prev / Next Navigation */}
             <div className="mt-16 grid grid-cols-2 gap-4 border-t border-border pt-8">
