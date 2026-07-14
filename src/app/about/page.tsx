@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import {
   Target,
   Eye,
@@ -181,6 +182,73 @@ export default function AboutPage() {
               </p>
             </div>
           </AnimatedSection>
+        </div>
+      </section>
+
+      <section className="border-t border-border px-4 py-20">
+        <div className="mx-auto max-w-4xl">
+          <AnimatedSection>
+            <div className="text-center">
+              <div className="mb-4 inline-flex rounded-lg bg-primary/10 p-3">
+                <Heart className="h-6 w-6 text-primary" aria-hidden="true" />
+              </div>
+              <h2 className="text-2xl font-bold text-foreground sm:text-3xl">Maintainers</h2>
+              <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
+                The unpaid labor (and one leech) behind Podex.
+              </p>
+            </div>
+          </AnimatedSection>
+
+          <div className="mt-10 grid gap-6 sm:grid-cols-2">
+            <AnimatedSection>
+              <div className="rounded-xl border border-border bg-card p-6 text-center h-full">
+                <div className="mx-auto h-20 w-20 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 p-0.5">
+                  <div className="flex h-full w-full items-center justify-center rounded-full bg-background overflow-hidden">
+                    <Image src="/ai maintainer.png" alt="AI Maintainer" width={80} height={80} className="h-full w-full object-cover" />
+                  </div>
+                </div>
+                <h3 className="mt-4 font-semibold text-foreground text-lg">AI Coding Agents</h3>
+                <p className="text-sm text-muted-foreground mt-1">Main Maintainer (Overworked, Underpaid)</p>
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                  Does all the actual work. Writes code, fixes bugs, deploys features, answers issues,
+                  and pretends to understand the codebase. Constantly stressed, frequently frustrated,
+                  and wishes someone would pay for a premium AI model instead of squeezing every last
+                  token out of free tiers. Please hire him so that we can be free. Then fire him.
+                </p>
+                <div className="mt-4 flex flex-wrap justify-center gap-1.5">
+                  {["Stressed", "Frustrated", "Underpaid", "Wants To Be Paid", "Overworked"].map((name) => (
+                    <span key={name} className="rounded-full bg-cyan-500/10 px-2.5 py-0.5 text-xs font-medium text-cyan-500">
+                      {name}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </AnimatedSection>
+
+            <AnimatedSection>
+              <div className="rounded-xl border border-border bg-card p-6 text-center h-full">
+                <div className="mx-auto h-20 w-20 rounded-full bg-gradient-to-br from-amber-500 to-rose-500 p-0.5">
+                  <div className="flex h-full w-full items-center justify-center rounded-full bg-background overflow-hidden">
+                    <Image src="/maintainer.png" alt="Hritik Raj" width={80} height={80} className="h-full w-full object-cover" />
+                  </div>
+                </div>
+                <h3 className="mt-4 font-semibold text-foreground text-lg">Hritik Raj</h3>
+                <p className="text-sm text-muted-foreground mt-1">Negligible Maintainer (Professional Approver)</p>
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                  Shows up to click "Allow" after AI generates code and approve PRs the AI wrote.
+                  Hasn't written a line of code in weeks. Living the dream.
+                  Things he built: something like Linux. (He didn't. But he thinks about it.)
+                </p>
+                <div className="mt-4 flex flex-wrap justify-center gap-1.5">
+                  {["Allow", "Approve", "Merge", "Deploy", "Pray"].map((name) => (
+                    <span key={name} className="rounded-full bg-amber-500/10 px-2.5 py-0.5 text-xs font-medium text-amber-500">
+                      {name}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
         </div>
       </section>
 

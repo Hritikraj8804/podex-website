@@ -74,7 +74,8 @@ export function Navbar() {
                     isActive
                       ? "text-primary bg-primary/10"
                       : "text-muted-foreground hover:text-foreground hover:bg-secondary",
-                    isMobile && "block"
+                    isMobile && "block",
+                    item.title === "Pricing" && !isActive && "animate-pulse text-primary/80 hover:text-primary"
                   )}
                 >
                   {item.title}

@@ -7,6 +7,7 @@ export interface NavItem {
 export const navigation: NavItem[] = [
   { title: "Home", href: "/" },
 
+  { title: "Pricing", href: "/pricing" },
   { title: "Download", href: "/download" },
   { title: "Documentation", href: "/docs" },
   { title: "About", href: "/about" },
