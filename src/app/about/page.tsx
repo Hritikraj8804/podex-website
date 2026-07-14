@@ -4,14 +4,10 @@ import {
   Eye,
   BookOpen,
   Heart,
-  Calendar,
-  Users,
   GitBranch,
-  Rocket,
   Puzzle,
   Sparkles,
   Shield,
-  Globe,
 } from "lucide-react";
 import {
   AnimatedSection,
@@ -22,55 +18,8 @@ import {
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Learn about Podex — our mission to make Kubernetes accessible to every developer, our open-source philosophy, and the team behind the project.",
+    "Podex is a visual Kubernetes playground for beginners and students. Learn about our mission to lower the entry barrier to Kubernetes.",
 };
-
-const roadmap = [
-  {
-    version: "v1.0",
-    title: "Extensibility & Intelligence",
-    date: "Q3 2026",
-    icon: Rocket,
-    items: ["Plugin System with public API", "AI Assistant for cluster diagnostics", "Multi-language support (i18n)"],
-  },
-  {
-    version: "v1.5",
-    title: "Team Collaboration",
-    date: "Q1 2027",
-    icon: Users,
-    items: ["Team Workspaces with shared configs", "RBAC integration for enterprise clusters", "Audit logging for compliance"],
-  },
-  {
-    version: "v2.0",
-    title: "Automation & Scale",
-    date: "Q3 2027",
-    icon: Globe,
-    items: ["Cluster Templates for rapid onboarding", "GitOps workflow integration", "Multi-cluster orchestration views"],
-  },
-];
-
-const team = [
-  {
-    name: "Alex Chen",
-    role: "Creator & Lead Developer",
-    bio: "Full-stack engineer passionate about developer tools. Previously built internal platforms at a Fortune 500 company.",
-  },
-  {
-    name: "Sam Rivera",
-    role: "Core Maintainer",
-    bio: "Kubernetes contributor and distributed systems enthusiast. Focused on performance and reliability.",
-  },
-  {
-    name: "Jordan Kim",
-    role: "UX & Design",
-    bio: "Designer obsessed with making complex systems feel simple. Advocates for accessibility in developer tools.",
-  },
-  {
-    name: "Taylor Patel",
-    role: "Documentation & Community",
-    bio: "Technical writer and open-source community builder. Ensures Podex is welcoming to contributors of all experience levels.",
-  },
-];
 
 export default function AboutPage() {
   return (
@@ -86,8 +35,8 @@ export default function AboutPage() {
               About <span className="text-gradient">Podex</span>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-              We&apos;re building the Kubernetes desktop browser we always wished existed &mdash;
-              visual, fast, and a pleasure to use.
+              Your visual Kubernetes playground. Built to make K8s accessible, interactive, and fun
+              for everyone — especially beginners.
             </p>
           </AnimatedSection>
         </div>
@@ -103,9 +52,9 @@ export default function AboutPage() {
                 </div>
                 <h2 className="text-2xl font-bold text-foreground">Our Mission</h2>
                 <p className="mt-3 text-muted-foreground leading-relaxed">
-                  To make Kubernetes accessible to every developer. We believe that container
-                  orchestration shouldn&apos;t require a steep learning curve or constant reliance on
-                  the command line for basic tasks.
+                  To lower the entry barrier to Kubernetes by transforming cluster administration
+                  from a text-heavy terminal-based command experience into an interactive, visual,
+                  and AI-toured playground.
                 </p>
               </div>
               <div>
@@ -114,9 +63,9 @@ export default function AboutPage() {
                 </div>
                 <h2 className="text-2xl font-bold text-foreground">Our Vision</h2>
                 <p className="mt-3 text-muted-foreground leading-relaxed">
-                  A world where cluster management is visual, intuitive, and delightful. Where
-                  developers spend their time building products, not wrestling with YAML manifests
-                  and debugging opaque error messages.
+                  A world where every developer can learn and use Kubernetes without fear. Where the
+                  tools are visual, the feedback is immediate, and the learning curve is a gentle
+                  slope, not a vertical cliff.
                 </p>
               </div>
             </div>
@@ -133,24 +82,28 @@ export default function AboutPage() {
             <h2 className="text-2xl font-bold text-foreground sm:text-3xl">Our Story</h2>
             <div className="mt-6 space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                We noticed that developers who were comfortable with Docker Desktop found Kubernetes
-                intimidating. The terminal-centric workflow, the YAML complexity, the lack of visual
-                feedback &mdash; all of these created unnecessary friction.
+                Kubernetes has become the industry standard for container orchestration — but its
+                learning curve is brutal. YAML manifests, kubectl commands, cryptic error messages,
+                and terminal-heavy workflows create unnecessary friction for newcomers.
               </p>
               <p>
-                Podex was born from a simple question: <em>what if managing Kubernetes felt as easy
-                as using Docker Desktop?</em>
+                We asked a simple question: <em>what if learning Kubernetes felt like playing with
+                building blocks instead of decoding a terminal?</em>
               </p>
               <p>
-                We started with a focused set of features &mdash; browsing pods, streaming logs,
-                opening a terminal &mdash; and built outward from there. Every feature is designed to
-                save a developer a trip to the command line without hiding the power of Kubernetes
-                underneath.
+                Podex was born as a local, visual Kubernetes cluster examiner. We started with a
+                dashboard and explorer, then added the Arena (drag-and-drop playground), the AI
+                Concept Tutor, live debugging tools, and topology visualization — all designed
+                around one principle: <strong>make K8s visual and interactive</strong>.
               </p>
               <p>
-                Today Podex is a growing open-source project used by developers and platform teams
-                who want a fast, visual way to interact with their clusters. We&apos;re still early,
-                but the feedback has been incredible and the roadmap is ambitious.
+                Today Podex runs entirely via Docker Compose. No data leaves your machine. It
+                inherits your exact kubectl permissions. And it works with any local cluster — Kind,
+                Minikube, or Docker Desktop K8s.
+              </p>
+              <p>
+                We're early, open source, and building for the community. If you're learning
+                Kubernetes, Podex is for you.
               </p>
             </div>
           </AnimatedSection>
@@ -160,49 +113,30 @@ export default function AboutPage() {
       <section className="border-t border-border px-4 py-20">
         <div className="mx-auto max-w-4xl">
           <AnimatedSection>
-            <h2 className="text-2xl font-bold text-foreground sm:text-3xl">Why Podex</h2>
+            <h2 className="text-2xl font-bold text-foreground sm:text-3xl">Value Pillars</h2>
             <p className="mt-3 text-muted-foreground">
-              The tools that exist today force a trade-off between simplicity and power. Podex
-              refuses to compromise.
+              Three principles that guide everything we build.
             </p>
           </AnimatedSection>
-          <StaggerContainer className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <StaggerContainer className="mt-10 grid gap-6 sm:grid-cols-3">
             {[
               {
-                icon: Globe,
-                title: "Visual by Default",
-                description:
-                  "See your cluster state at a glance instead of parsing terminal output. Every resource has a clear, scannable layout.",
-              },
-              {
-                icon: Shield,
-                title: "Safe Operations",
-                description:
-                  "Destructive actions require confirmation. Rollbacks are one click away. You never have to worry about running the wrong kubectl command.",
-              },
-              {
                 icon: Puzzle,
-                title: "Extensible Architecture",
+                title: "Visual-First",
                 description:
-                  "A plugin system lets the community extend Podex with custom resource viewers, integrations, and workflows.",
+                  "A drag-and-drop workflow modeling canvas (the Arena) where you wire cards together and see YAML generate dynamically — no typing YAML manually.",
               },
               {
                 icon: Sparkles,
-                title: "Zero Configuration",
+                title: "Context-Aware AI Tutor",
                 description:
-                  "Podex reads your existing kubeconfig and works immediately. No servers to install, no databases to manage, no Docker required.",
+                  "LLM-based tutors integrated alongside live resources. Ask 'What is a Service?' and get analogies based on your live cluster state.",
               },
               {
-                icon: Heart,
-                title: "Open Source",
+                icon: Shield,
+                title: "No-Setup Instant Run",
                 description:
-                  "Fully open source under a permissive license. Inspect the code, contribute features, or fork it for your own needs.",
-              },
-              {
-                icon: GitBranch,
-                title: "Fast Release Cycle",
-                description:
-                  "Releases ship every two to three weeks with clear changelogs. Critical fixes are pushed as soon as they're ready.",
+                  "Containerized stack via Docker Compose that connects to any local Kubeconfig. Start in minutes, not hours.",
               },
             ].map((item) => {
               const Icon = item.icon;
@@ -210,7 +144,7 @@ export default function AboutPage() {
                 <StaggerItem key={item.title}>
                   <div className="h-full rounded-xl border border-border bg-card p-6">
                     <div className="mb-3 inline-flex rounded-lg bg-primary/10 p-2">
-                      <Icon className="h-5 w-5 text-primary" aria-hidden="true" />
+                      <Icon className="h-5 w-5 text-primary" />
                     </div>
                     <h3 className="font-semibold text-foreground">{item.title}</h3>
                     <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
@@ -227,75 +161,23 @@ export default function AboutPage() {
       <section className="border-t border-border px-4 py-20">
         <div className="mx-auto max-w-4xl">
           <AnimatedSection>
-            <div className="mb-4 inline-flex rounded-lg bg-primary/10 p-3">
-              <Calendar className="h-6 w-6 text-primary" aria-hidden="true" />
-            </div>
-            <h2 className="text-2xl font-bold text-foreground sm:text-3xl">Roadmap</h2>
-            <p className="mt-3 text-muted-foreground">
-              Where Podex is headed. Priorities shift based on community feedback, so these dates
-              are estimates, not promises.
-            </p>
-          </AnimatedSection>
-          <div className="mt-10 space-y-8">
-            {roadmap.map((milestone, idx) => {
-              const Icon = milestone.icon;
-              return (
-                <AnimatedSection key={milestone.version} delay={idx * 0.1}>
-                  <div className="rounded-xl border border-border bg-card p-6">
-                    <div className="flex flex-wrap items-center gap-3">
-                      <div className="inline-flex rounded-lg bg-primary/10 p-2">
-                        <Icon className="h-5 w-5 text-primary" aria-hidden="true" />
-                      </div>
-                      <div>
-                        <span className="font-bold text-foreground">{milestone.version}</span>
-                        <span className="ml-2 text-sm text-muted-foreground">
-                          &mdash; {milestone.title}
-                        </span>
-                      </div>
-                      <span className="ml-auto rounded-full bg-surface-secondary px-3 py-1 text-xs font-medium text-muted-foreground">
-                        {milestone.date}
-                      </span>
-                    </div>
-                    <ul className="mt-4 space-y-2">
-                      {milestone.items.map((item) => (
-                        <li
-                          key={item}
-                          className="flex items-start gap-2 text-sm text-muted-foreground"
-                        >
-                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </AnimatedSection>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section className="border-t border-border px-4 py-20">
-        <div className="mx-auto max-w-4xl">
-          <AnimatedSection>
             <div className="mb-4 inline-flex rounded-lg bg-emerald/10 p-3">
               <Heart className="h-6 w-6 text-emerald" aria-hidden="true" />
             </div>
             <h2 className="text-2xl font-bold text-foreground sm:text-3xl">Open Source</h2>
             <div className="mt-4 max-w-3xl space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                Podex is built in the open. Every decision, every design trade-off, and every feature
-                discussion happens in public. We believe transparency builds trust and produces
-                better software.
+                Podex is 100% free and open source. No paid tiers, no premium features, no
+                enterprise upsells — just a tool built to help people learn Kubernetes.
               </p>
               <p>
-                We welcome contributions from developers of all experience levels. Whether it&apos;s a
-                bug report, a documentation improvement, or a new feature &mdash; your input makes
-                Podex better for everyone.
+                Every decision, design trade-off, and feature discussion happens in public.
+                We believe transparency builds trust and produces better software.
               </p>
               <p>
-                Licensed under the MIT License, Podex is free to use, modify, and distribute. No
-                strings attached.
+                We welcome contributions from developers of all experience levels. Whether it&apos;s
+                a bug report, documentation improvement, or new feature — your input makes Podex
+                better for everyone.
               </p>
             </div>
           </AnimatedSection>
@@ -303,30 +185,36 @@ export default function AboutPage() {
       </section>
 
       <section className="border-t border-border px-4 py-20">
-        <div className="mx-auto max-w-4xl">
+        <div className="mx-auto max-w-4xl text-center">
           <AnimatedSection>
-            <h2 className="text-2xl font-bold text-foreground sm:text-3xl">The Team</h2>
-            <p className="mt-3 text-muted-foreground">
-              A small, focused team building the Kubernetes browser we all deserve.
+            <div className="mb-4 inline-flex rounded-lg bg-primary/10 p-3">
+              <GitBranch className="h-6 w-6 text-primary" aria-hidden="true" />
+            </div>
+            <h2 className="text-2xl font-bold text-foreground sm:text-3xl">Get Involved</h2>
+            <p className="mx-auto mt-3 max-w-xl text-muted-foreground">
+              Podex is a community project. Star us on GitHub, open issues, join discussions,
+              and help us make Kubernetes accessible to everyone.
             </p>
+            <div className="mt-8 flex flex-wrap justify-center gap-4">
+              <a
+                href="https://github.com/your-org/podex"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-primary px-8 text-base font-medium text-primary-foreground shadow-sm transition-all hover:bg-primary/90 hover:shadow-md active:scale-[0.98]"
+              >
+                <GitBranch className="h-4 w-4" />
+                View on GitHub
+              </a>
+              <a
+                href="https://github.com/your-org/podex/issues"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-border bg-background px-8 text-base font-medium transition-all hover:bg-secondary hover:text-secondary-foreground"
+              >
+                Report an Issue
+              </a>
+            </div>
           </AnimatedSection>
-          <StaggerContainer className="mt-10 grid gap-6 sm:grid-cols-2">
-            {team.map((member) => (
-              <StaggerItem key={member.name}>
-                <div className="rounded-xl border border-border bg-card p-6">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-gradient-start to-gradient-end text-lg font-bold text-white">
-                    {member.name
-                      .split(" ")
-                      .map((n) => n[0])
-                      .join("")}
-                  </div>
-                  <h3 className="mt-4 text-lg font-bold text-foreground">{member.name}</h3>
-                  <p className="text-sm font-medium text-primary">{member.role}</p>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{member.bio}</p>
-                </div>
-              </StaggerItem>
-            ))}
-          </StaggerContainer>
         </div>
       </section>
     </div>

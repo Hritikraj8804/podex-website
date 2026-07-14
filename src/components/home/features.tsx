@@ -1,50 +1,44 @@
 "use client";
 
-import { Eye, Box, FileText, Terminal, Rocket, Layers } from "lucide-react";
+import { LayoutDashboard, Puzzle, Bot, Terminal, GitBranch, Search } from "lucide-react";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/ui/animated-section";
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 
 const features = [
   {
-    icon: Eye,
-    title: "Cluster Browser",
-    description:
-      "Visual cluster exploration with real-time updates",
-    color: "from-blue-500 to-blue-600",
+    icon: LayoutDashboard,
+    title: "Visual Dashboard",
+    description: "Real-time cluster health donut, metrics counters, and namespace filtering at a glance.",
+    color: "from-[#f2856d] to-[#e06b54]",
   },
   {
-    icon: Box,
-    title: "Pod Explorer",
-    description:
-      "Browse, search, and manage pods across all namespaces",
-    color: "from-purple-500 to-purple-600",
+    icon: Puzzle,
+    title: "Arena Playground",
+    description: "Drag-and-drop canvas to wire K8s blocks together and auto-generate valid YAML manifests.",
+    color: "from-[#8b5cf6] to-[#7c3aed]",
   },
   {
-    icon: FileText,
-    title: "Live Logs",
-    description:
-      "Stream and search container logs in real time",
-    color: "from-cyan-500 to-cyan-600",
+    icon: Bot,
+    title: "AI Concept Tutor",
+    description: "Ask 'What is a Service?' and get real-world analogies plus crash-loop diagnosis with fix suggestions.",
+    color: "from-[#f39e8a] to-[#f2856d]",
   },
   {
     icon: Terminal,
-    title: "Built-in Terminal",
-    description:
-      "Exec into any pod without leaving the app",
+    title: "Live Debugging",
+    description: "SSE log streaming and WebSocket-powered interactive terminal shells inside any container.",
     color: "from-emerald-500 to-emerald-600",
   },
   {
-    icon: Rocket,
-    title: "Deploy Apps",
-    description:
-      "Deploy applications with a visual editor or paste YAML",
-    color: "from-pink-500 to-pink-600",
+    icon: GitBranch,
+    title: "Topology View",
+    description: "Dynamic SVG map showing relationships between Ingress, Services, Deployments, and Pods.",
+    color: "from-cyan-500 to-cyan-600",
   },
   {
-    icon: Layers,
-    title: "Resource Viewer",
-    description:
-      "Monitor deployments, services, and resource usage",
+    icon: Search,
+    title: "Cluster Explorer",
+    description: "Browse Pods, Deployments, and Services with inline scale, restart, and delete controls.",
     color: "from-amber-500 to-amber-600",
   },
 ];
@@ -57,13 +51,12 @@ export function Features() {
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="font-bold text-3xl tracking-tight sm:text-4xl">
               Everything you need to{" "}
-              <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 bg-clip-text text-transparent">
-                manage Kubernetes
+              <span className="bg-gradient-to-r from-[#f2856d] via-[#8b5cf6] to-[#f39e8a] bg-clip-text text-transparent">
+                master Kubernetes
               </span>
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              A powerful suite of tools that makes working with Kubernetes
-              intuitive, fast, and enjoyable.
+              Visual tools that make cluster management intuitive, interactive, and beginner-friendly.
             </p>
           </div>
         </AnimatedSection>
@@ -73,7 +66,7 @@ export function Features() {
             const Icon = feature.icon;
             return (
               <StaggerItem key={feature.title}>
-                <Card className="group h-full transition-colors hover:border-primary/50">
+                <Card className="group h-full transition-all hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5">
                   <CardHeader>
                     <div
                       className={`mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${feature.color} text-white shadow-lg`}

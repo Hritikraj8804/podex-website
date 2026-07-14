@@ -5,27 +5,27 @@ import { motion, AnimatePresence } from "framer-motion";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { cn } from "@/lib/utils";
 import {
+  DashboardMockup,
   PodsMockup,
-  LogsMockup,
-  DeploymentMockup,
+  TerminalMockup,
 } from "@/components/illustrations/app-mockups";
 
 const tabs = [
-  { id: "pods", label: "Pods" },
-  { id: "logs", label: "Logs" },
-  { id: "deployments", label: "Deployments" },
+  { id: "dashboard", label: "Dashboard" },
+  { id: "pods", label: "Explorer" },
+  { id: "terminal", label: "Terminal" },
 ] as const;
 
 type TabId = (typeof tabs)[number]["id"];
 
-const mockups: Record<TabId, React.ComponentType> = {
+const mockups: Record<TabId, React.ComponentType<{ className?: string }>> = {
+  dashboard: DashboardMockup,
   pods: PodsMockup,
-  logs: LogsMockup,
-  deployments: DeploymentMockup,
+  terminal: TerminalMockup,
 };
 
 export function Screenshots() {
-  const [activeTab, setActiveTab] = useState<TabId>("pods");
+  const [activeTab, setActiveTab] = useState<TabId>("dashboard");
 
   return (
     <section className="py-20 lg:py-28">

@@ -28,10 +28,13 @@ export async function generateMetadata({
   };
 }
 
-const categoryIcons: Record<string, string> = {
-  "Getting Started": "🚀",
-  "Core Features": "⚙️",
-  Support: "💬",
+import { Compass, Layers, BookMarked, Users } from "lucide-react";
+
+const categoryIcons: Record<string, React.ReactNode> = {
+  "Getting Started": <Compass className="h-4 w-4" />,
+  "Features": <Layers className="h-4 w-4" />,
+  "Reference": <BookMarked className="h-4 w-4" />,
+  "Community": <Users className="h-4 w-4" />,
 };
 
 export default async function DocPage({
@@ -104,7 +107,7 @@ export default async function DocPage({
           {/* Main Content */}
           <main>
             <div className="mb-8">
-              <p className="text-sm font-medium text-primary mb-2">
+              <p className="flex items-center gap-1.5 text-sm font-medium text-primary mb-2">
                 {categoryIcons[doc.category]} {doc.category}
               </p>
               <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">

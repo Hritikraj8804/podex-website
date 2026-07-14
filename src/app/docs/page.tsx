@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { docs, docsByCategory } from "@/lib/content-data";
-import { BookOpen, ChevronRight, FileText, Search } from "lucide-react";
+import { BookOpen, ChevronRight, FileText, Search, Compass, Layers, BookMarked, Users } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Documentation",
@@ -9,14 +9,14 @@ export const metadata: Metadata = {
     "Learn how to install, configure, and use Podex to manage your Kubernetes clusters with a visual interface.",
 };
 
-const categoryIcons: Record<string, string> = {
-  "Getting Started": "🚀",
-  "Core Features": "⚙️",
-  Support: "💬",
+const categoryIcons: Record<string, React.ReactNode> = {
+  "Getting Started": <Compass className="h-4 w-4" />,
+  "Features": <Layers className="h-4 w-4" />,
+  "Reference": <BookMarked className="h-4 w-4" />,
+  "Community": <Users className="h-4 w-4" />,
 };
 
 export default function DocsPage() {
-  const sortedDocs = [...docs].sort((a, b) => a.order - b.order);
   const categories = Object.keys(docsByCategory);
 
   return (
@@ -42,7 +42,7 @@ export default function DocsPage() {
               <nav className="space-y-6">
                 {categories.map((category) => (
                   <div key={category}>
-                    <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                    <h3 className="mb-2 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                       {categoryIcons[category]} {category}
                     </h3>
                     <ul className="space-y-1">
@@ -81,7 +81,7 @@ export default function DocsPage() {
             <div className="space-y-10">
               {categories.map((category) => (
                 <section key={category}>
-                  <h2 className="text-2xl font-semibold text-foreground mb-6 pb-3 border-b border-border">
+                  <h2 className="flex items-center gap-2 text-2xl font-semibold text-foreground mb-6 pb-3 border-b border-border">
                     {categoryIcons[category]} {category}
                   </h2>
                   <div className="grid gap-4 sm:grid-cols-2">

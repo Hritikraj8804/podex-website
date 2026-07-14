@@ -8,45 +8,45 @@ import { AnimatedSection } from "@/components/ui/animated-section";
 const testimonials = [
   {
     quote:
-      "Podex completely changed how I work with Kubernetes. No more terminal gymnastics.",
-    name: "Sarah Chen",
-    role: "Senior DevOps Engineer",
-    avatar: "SC",
+      "Podex is hands-down the best Kubernetes learning tool I've found. The Arena makes abstract concepts tangible.",
+    name: "Alex Rivera",
+    role: "Cloud Engineering Student",
+    avatar: "AR",
   },
   {
     quote:
-      "Finally, a visual tool that doesn't sacrifice power. The log viewer alone is worth it.",
-    name: "Marcus Rivera",
-    role: "Platform Engineer",
-    avatar: "MR",
-  },
-  {
-    quote:
-      "I recommend Podex to every new team member learning K8s. The learning curve drops dramatically.",
-    name: "Elena Volkov",
-    role: "SRE Lead",
-    avatar: "EV",
-  },
-  {
-    quote:
-      "We tried three other Kubernetes dashboards. Podex is the one that stuck.",
-    name: "James Wilson",
-    role: "CTO at CloudScale",
-    avatar: "JW",
-  },
-  {
-    quote:
-      "The terminal integration is seamless. It feels like part of the cluster, not a bolted-on tool.",
+      "I was terrified of kubectl. Podex's visual dashboard and AI tutor gave me the confidence to finally learn K8s.",
     name: "Priya Sharma",
-    role: "Backend Engineer",
+    role: "DevOps Intern",
     avatar: "PS",
   },
   {
     quote:
-      "As a student, Kubernetes was overwhelming. Podex made it click.",
-    name: "Alex Kim",
+      "The drag-and-drop Arena is genius. I built my first real deployment without writing a single line of YAML.",
+    name: "Marcus Kim",
     role: "CS Student",
-    avatar: "AK",
+    avatar: "MK",
+  },
+  {
+    quote:
+      "Being able to exec into pods and stream logs from a browser — for free — is amazing for a learner like me.",
+    name: "Elena Torres",
+    role: "Junior Platform Engineer",
+    avatar: "ET",
+  },
+  {
+    quote:
+      "The AI troubleshooting feature saved me hours of googling errors. It explains things like a senior dev would.",
+    name: "James Chen",
+    role: "Backend Developer (New to K8s)",
+    avatar: "JC",
+  },
+  {
+    quote:
+      "I use Podex to teach Kubernetes to my students. It's the perfect visual companion to the textbook.",
+    name: "Dr. Sarah Mitchell",
+    role: "Computer Science Professor",
+    avatar: "SM",
   },
 ];
 
@@ -57,10 +57,10 @@ export function Testimonials() {
         <AnimatedSection>
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="font-bold text-3xl tracking-tight sm:text-4xl">
-              Loved by engineers
+              Loved by learners
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              See what the community has to say about Podex.
+              Hear from the community using Podex to level up their Kubernetes skills.
             </p>
           </div>
         </AnimatedSection>
@@ -68,14 +68,14 @@ export function Testimonials() {
         <StaggerContainer className="mx-auto mt-16 grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((t) => (
             <StaggerItem key={t.name}>
-              <Card className="group flex h-full flex-col transition-colors hover:border-primary/50">
+              <Card className="group flex h-full flex-col transition-all hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5">
                 <CardContent className="flex flex-1 flex-col pt-6">
                   <Quote className="mb-4 h-8 w-8 text-primary/40" />
                   <p className="flex-1 text-base leading-relaxed text-foreground">
                     &ldquo;{t.quote}&rdquo;
                   </p>
                   <div className="mt-6 flex items-center gap-3 border-t border-border pt-4">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 to-purple-500 text-sm font-bold text-white">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-[#f2856d] to-[#8b5cf6] text-sm font-bold text-white">
                       {t.avatar}
                     </div>
                     <div>

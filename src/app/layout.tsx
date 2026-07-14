@@ -18,21 +18,24 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Podex - Kubernetes, Without the Complexity",
+    default: "Podex — Your Visual Kubernetes Playground",
     template: "%s | Podex",
   },
   description:
-    "Podex is the desktop browser for Kubernetes. Explore clusters, manage pods, stream logs, and deploy applications with a visual interface. No more YAML headaches.",
+    "Podex is a visual Kubernetes cluster examiner and interactive playground. Explore clusters, design architectures with drag-and-drop, stream logs, and learn K8s — all from your browser. Zero config, just docker compose up.",
   keywords: [
     "Kubernetes",
     "K8s",
     "container orchestration",
-    "desktop app",
-    "pod browser",
+    "visual kubernetes",
+    "kubectl alternative",
+    "kubernetes playground",
+    "DevOps learning",
+    "kubernetes for beginners",
     "cluster management",
-    "DevOps",
-    "kubernetes UI",
-    "kubernetes browser",
+    "K8s UI",
+    "kubernetes visualizer",
+    "learn kubernetes",
   ],
   authors: [{ name: "Podex" }],
   creator: "Podex",
@@ -41,23 +44,23 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://podex.dev",
     siteName: "Podex",
-    title: "Podex - Kubernetes, Without the Complexity",
+    title: "Podex — Your Visual Kubernetes Playground",
     description:
-      "The desktop browser for Kubernetes. Explore clusters, manage pods, stream logs, and deploy applications with a visual interface.",
+      "Explore clusters, design architectures with drag-and-drop, stream logs, and learn K8s — all from your browser with Podex.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Podex - Kubernetes Desktop Browser",
+        alt: "Podex — Visual Kubernetes Playground",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Podex - Kubernetes, Without the Complexity",
+    title: "Podex — Your Visual Kubernetes Playground",
     description:
-      "The desktop browser for Kubernetes. Explore clusters, manage pods, stream logs, and deploy applications.",
+      "Explore clusters, design architectures with drag-and-drop, stream logs, and learn K8s — all from your browser.",
     images: ["/og-image.png"],
   },
   robots: {

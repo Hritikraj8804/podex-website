@@ -1,26 +1,26 @@
 "use client";
 
-import { Download, Link2, Compass } from "lucide-react";
+import { GitBranch, Container, Eye } from "lucide-react";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/ui/animated-section";
 
 const steps = [
   {
     number: "01",
-    icon: Download,
-    title: "Download & Install",
-    description: "Get started in under 60 seconds",
+    icon: GitBranch,
+    title: "Clone & Run",
+    description: "git clone + cd podex + docker compose up",
   },
   {
     number: "02",
-    icon: Link2,
+    icon: Container,
     title: "Connect Cluster",
-    description: "Point to your existing kubeconfig",
+    description: "Auto-detects your local kubeconfig context",
   },
   {
     number: "03",
-    icon: Compass,
-    title: "Explore & Manage",
-    description: "Browse, deploy, and monitor everything",
+    icon: Eye,
+    title: "Explore Visually",
+    description: "Dashboard, Arena, AI Tutor — all in your browser",
   },
 ];
 
@@ -34,7 +34,7 @@ export function HowItWorks() {
               How it works
             </h2>
             <p className="mt-4 text-lg text-muted-foreground">
-              Three simple steps to a better Kubernetes experience.
+              Three steps from zero to exploring your cluster.
             </p>
           </div>
         </AnimatedSection>
@@ -46,7 +46,7 @@ export function HowItWorks() {
               <StaggerItem key={step.number}>
                 <div className="flex flex-col items-center text-center">
                   <div className="relative mb-6">
-                    <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-blue-500 via-purple-500 to-cyan-500 shadow-lg shadow-primary/25">
+                    <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-[#f2856d] via-[#8b5cf6] to-[#f39e8a] shadow-lg shadow-primary/25">
                       <Icon className="h-8 w-8 text-white" />
                     </div>
                     <span className="absolute -top-2 -right-2 flex h-8 w-8 items-center justify-center rounded-full bg-card text-sm font-bold text-primary shadow-md">
@@ -56,7 +56,7 @@ export function HowItWorks() {
                   <h3 className="font-semibold text-xl text-foreground">
                     {step.title}
                   </h3>
-                  <p className="mt-2 text-muted-foreground">
+                  <p className="mt-2 font-mono text-sm text-muted-foreground">
                     {step.description}
                   </p>
                 </div>

@@ -10,34 +10,34 @@ import {
 
 const faqs = [
   {
-    question: "What is Podex?",
+    question: "What exactly is Podex?",
     answer:
-      "Podex is a desktop application that provides a visual, intuitive interface for managing Kubernetes clusters. It replaces the need to context-switch between multiple terminal windows and dashboards.",
+      "Podex is a local, visual Kubernetes cluster examiner and interactive playground. It runs in your browser via Docker Compose and connects to your local Kubernetes cluster (like Kind or Minikube). It's designed for beginners and students who find kubectl intimidating.",
+  },
+  {
+    question: "Is it a desktop app I need to install?",
+    answer:
+      "No — Podex runs as a Docker Compose stack. You clone the repo, run 'docker compose up --build', and open http://localhost:5173 in your browser. No native installers, no .msi or .dmg files.",
   },
   {
     question: "Is Podex free?",
     answer:
-      "Yes, Podex is completely free and open source for individual use. The Pro plan is available for teams that need advanced collaboration features, AI-assisted debugging, and priority support.",
+      "Yes — 100% free and open source. There are no paid tiers, premium features, or subscription plans. Podex is built for the community.",
   },
   {
-    question: "Does it work with managed Kubernetes?",
+    question: "Does it work with any Kubernetes cluster?",
     answer:
-      "Absolutely. Podex works with EKS, GKE, AKS, and any standard Kubernetes distribution. It reads your existing kubeconfig, so there is no extra setup required.",
+      "Yes. Podex loads your active context from ~/.kube/config and supports any cluster authentication scheme: local certificates, OIDC tokens, username/password, and AWS IAM Authenticator. It works with Kind, Minikube, Docker Desktop K8s, EKS, GKE, AKS, and more.",
   },
   {
-    question: "Do I need kubectl?",
+    question: "Do I need a Kubernetes cluster to use it?",
     answer:
-      "No. Podex has its own built-in Kubernetes client that handles all standard operations. That said, it integrates with your kubeconfig so your existing auth setup carries over seamlessly.",
+      "Yes — Podex connects to a local Kubernetes cluster. We recommend Kind (Kubernetes-in-Docker) for beginners: 'kind create cluster --name podex'. It's free and runs on your machine.",
   },
   {
-    question: "What operating systems are supported?",
+    question: "Do I need API keys for the AI features?",
     answer:
-      "Podex runs on Windows, macOS, and Linux. Native installers are provided for each platform, and updates are delivered automatically.",
-  },
-  {
-    question: "How does Podex compare to kubectl?",
-    answer:
-      "Podex is not a replacement for kubectl — it is a complement. For quick visual exploration, debugging, and day-to-day management, Podex is faster. For scripted automation and CI/CD pipelines, kubectl remains the right tool.",
+      "No — Podex includes built-in mock AI providers that work offline without any API keys. If you want to use real LLMs (Gemini or OpenAI), you can add your API keys in the Settings panel.",
   },
 ];
 
@@ -53,10 +53,12 @@ export function FAQ() {
             <p className="mt-4 text-lg text-muted-foreground">
               Can&apos;t find what you&apos;re looking for?{" "}
               <a
-                href="mailto:support@podex.dev"
+                href="https://github.com/your-org/podex/issues"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="font-medium text-primary underline-offset-4 hover:underline"
               >
-                Reach out to our team
+                Open an issue on GitHub
               </a>
               .
             </p>

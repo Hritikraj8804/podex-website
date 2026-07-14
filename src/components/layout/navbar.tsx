@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { navigation } from "@/lib/content-data";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
-import { Menu, X, Download } from "lucide-react";
+import { Menu, X, Terminal } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useMobile } from "@/hooks/use-mobile";
 
@@ -39,11 +39,14 @@ export function Navbar() {
     >
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2.5">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-[var(--gradient-start)] to-[var(--gradient-end)]">
+          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-[#f2856d] to-[#8b5cf6]">
             <svg className="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <path d="M12 2L2 7l10 5 10-5-10-5z" />
-              <path d="M2 17l10 5 10-5" />
-              <path d="M2 12l10 5 10-5" />
+              <circle cx="12" cy="12" r="10" />
+              <circle cx="12" cy="12" r="4" />
+              <circle cx="12" cy="8" r="1" fill="currentColor" />
+              <circle cx="16" cy="12" r="1" fill="currentColor" />
+              <circle cx="12" cy="16" r="1" fill="currentColor" />
+              <circle cx="8" cy="12" r="1" fill="currentColor" />
             </svg>
           </div>
           <span className="text-xl font-bold">Podex</span>
@@ -88,8 +91,8 @@ export function Navbar() {
           ) : (
             <Link href="/download">
               <Button size="sm">
-                <Download className="h-4 w-4" />
-                Download
+                <Terminal className="h-4 w-4" />
+                Get Started
               </Button>
             </Link>
           )}

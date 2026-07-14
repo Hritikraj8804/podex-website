@@ -1,16 +1,10 @@
 "use client";
 
 import { motion, type Variants } from "framer-motion";
-import { Download, ArrowRight, Play } from "lucide-react";
+import { Terminal, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { AnimatedBackground } from "@/components/illustrations/animated-background";
-import { PodsMockup } from "@/components/illustrations/app-mockups";
-
-const stats = [
-  { value: "10K+", label: "Downloads" },
-  { value: "4.9/5", label: "Rating" },
-  { value: "100%", label: "Open Source" },
-];
+import { DashboardMockup } from "@/components/illustrations/app-mockups";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 24 },
@@ -25,6 +19,7 @@ export function Hero() {
   return (
     <section className="relative overflow-hidden py-20 lg:py-32">
       <AnimatedBackground />
+      <div className="absolute inset-0 bg-grid-pattern opacity-40" />
 
       <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
@@ -39,7 +34,7 @@ export function Hero() {
               className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-muted-foreground backdrop-blur-sm"
             >
               <span className="h-2 w-2 rounded-full bg-emerald-500" />
-              Now available for Windows, macOS & Linux
+              Free & Open Source — CNCF-Style Project
             </motion.div>
 
             <motion.h1
@@ -47,9 +42,9 @@ export function Hero() {
               custom={1}
               className="font-bold text-4xl leading-tight tracking-tight sm:text-5xl lg:text-6xl"
             >
-              Kubernetes, without the{" "}
-              <span className="bg-gradient-to-r from-blue-500 via-purple-500 to-cyan-500 bg-clip-text text-transparent">
-                complexity
+              Your Kubernetes{" "}
+              <span className="bg-gradient-to-r from-[#f2856d] via-[#8b5cf6] to-[#f39e8a] bg-clip-text text-transparent">
+                Visual Playground
               </span>
             </motion.h1>
 
@@ -58,9 +53,13 @@ export function Hero() {
               custom={2}
               className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground"
             >
-              Podex is the desktop browser for Kubernetes. Explore clusters,
-              manage pods, stream logs, and deploy apps — all from a beautiful,
-              intuitive interface.
+              Podex transforms your terminal into a drag-and-drop playground
+              with live debugging, AI tutoring, and visual cluster management.
+              Zero config — just{" "}
+              <code className="rounded bg-primary/10 px-1.5 py-0.5 font-mono text-sm text-primary">
+                docker compose up
+              </code>
+              .
             </motion.p>
 
             <motion.div
@@ -68,11 +67,17 @@ export function Hero() {
               custom={3}
               className="mt-8 flex flex-wrap items-center gap-4"
             >
-              <Link href="/download" className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-primary px-8 text-base font-medium text-primary-foreground shadow-sm transition-all hover:bg-primary/90 hover:shadow-md active:scale-[0.98]">
-                <Download className="h-4 w-4" />
-                Download Free
+              <Link
+                href="/download"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-primary px-8 text-base font-medium text-primary-foreground shadow-sm transition-all hover:bg-primary/90 hover:shadow-md active:scale-[0.98]"
+              >
+                <Terminal className="h-4 w-4" />
+                Get Started
               </Link>
-              <Link href="/docs" className="inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-border bg-background px-8 text-base font-medium transition-all hover:bg-secondary hover:text-secondary-foreground">
+              <Link
+                href="/docs"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-border bg-background px-8 text-base font-medium transition-all hover:bg-secondary hover:text-secondary-foreground"
+              >
                 View Docs
                 <ArrowRight className="h-4 w-4" />
               </Link>
@@ -83,27 +88,7 @@ export function Hero() {
               custom={4}
               className="mt-10 flex items-center gap-2 text-sm text-muted-foreground"
             >
-              <button className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary transition-colors hover:bg-primary/20">
-                <Play className="h-4 w-4" />
-              </button>
-              <span>Watch the 2-minute demo</span>
-            </motion.div>
-
-            <motion.div
-              variants={fadeUp}
-              custom={5}
-              className="mt-12 grid grid-cols-3 gap-8 border-t border-border pt-8"
-            >
-              {stats.map((stat) => (
-                <div key={stat.label}>
-                  <div className="font-bold text-2xl text-foreground">
-                    {stat.value}
-                  </div>
-                  <div className="mt-1 text-sm text-muted-foreground">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
+              <CodeBlock />
             </motion.div>
           </motion.div>
 
@@ -113,13 +98,27 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
             className="relative hidden lg:block"
           >
-            <div className="absolute inset-0 -z-10 rounded-3xl bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-cyan-500/20 blur-3xl" />
+            <div className="absolute inset-0 -z-10 rounded-3xl bg-gradient-to-br from-[#f2856d]/20 via-[#8b5cf6]/20 to-[#f39e8a]/20 blur-3xl" />
             <div className="relative rounded-2xl border border-border/50 bg-card/80 p-2 shadow-2xl backdrop-blur-sm">
-              <PodsMockup />
+              <DashboardMockup />
             </div>
           </motion.div>
         </div>
       </div>
     </section>
+  );
+}
+
+function CodeBlock() {
+  return (
+    <div className="flex w-full items-center gap-2 rounded-lg border border-border bg-card px-4 py-2.5 font-mono text-sm">
+      <span className="text-emerald-500">$</span>
+      <span className="text-muted-foreground">git clone</span>
+      <span className="text-foreground">https://github.com/your-org/podex.git</span>
+      <span className="text-muted-foreground">&&</span>
+      <span className="text-foreground">cd podex</span>
+      <span className="text-muted-foreground">&&</span>
+      <span className="text-primary">docker compose up</span>
+    </div>
   );
 }

@@ -1,8 +1,8 @@
 import { docs, blogPosts, docsByCategory } from "@/lib/content-data";
 
 describe("content data", () => {
-  it("has 8 documentation entries", () => {
-    expect(docs).toHaveLength(8);
+  it("has 12 documentation entries", () => {
+    expect(docs).toHaveLength(12);
   });
 
   it("each doc has required fields", () => {
@@ -21,8 +21,8 @@ describe("content data", () => {
     expect(new Set(slugs).size).toBe(slugs.length);
   });
 
-  it("has 5 blog posts", () => {
-    expect(blogPosts).toHaveLength(5);
+  it("has 4 blog posts", () => {
+    expect(blogPosts).toHaveLength(4);
   });
 
   it("each blog post has required fields", () => {
@@ -40,7 +40,8 @@ describe("content data", () => {
   it("groups docs by category", () => {
     const categories = Object.keys(docsByCategory);
     expect(categories).toContain("Getting Started");
-    expect(categories).toContain("Core Features");
-    expect(categories).toContain("Support");
+    expect(categories).toContain("Features");
+    expect(categories).toContain("Reference");
+    expect(categories).toContain("Community");
   });
 });
