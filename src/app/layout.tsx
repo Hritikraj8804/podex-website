@@ -23,6 +23,10 @@ export const metadata: Metadata = {
   },
   description:
     "Podex is a visual Kubernetes cluster examiner and interactive playground. Explore clusters, design architectures with drag-and-drop, stream logs, and learn K8s  all from your browser. Zero config, just docker compose up.",
+  icons: {
+    icon: "/favicon.png",
+    apple: "/favicon.png",
+  },
   keywords: [
     "Kubernetes",
     "K8s",

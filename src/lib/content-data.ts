@@ -405,7 +405,7 @@ The following preferences are stored in your browser's \`localStorage\`:
 | Log Tail Limit | \`logsTailLimit\` | \`100\` | Number of log lines to fetch |
 
 ### Accent Colors
-The custom **peach** color (\`#f2856d\`) is inspired by the YunoHost project palette and serves as Podex's signature accent.
+The custom **blue** color (\`#2563eb\`) serves as Podex's signature accent, complemented by teal (\`#14b8a6\`) accents.
 `,
   },
   {

@@ -30,10 +30,7 @@
   --color-gradient-end: var(--gradient-end);
   --color-surface: var(--surface);
   --color-surface-secondary: var(--surface-secondary);
-  --color-emerald: var(--emerald-accent);
-  --color-peach: var(--peach);
-  --color-peach-light: var(--peach-light);
-  --color-peach-dark: var(--peach-dark);
+  --color-accent-brand: var(--accent-brand);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --radius-lg: var(--radius-lg);
@@ -43,71 +40,65 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #0a0a0f;
+  --foreground: #0b1120;
   --card: #ffffff;
-  --card-foreground: #0a0a0f;
+  --card-foreground: #0b1120;
   --popover: #ffffff;
-  --popover-foreground: #0a0a0f;
-  --primary: #f2856d;
+  --popover-foreground: #0b1120;
+  --primary: #2563eb;
   --primary-foreground: #ffffff;
   --secondary: #f1f5f9;
-  --secondary-foreground: #0f172a;
-  --muted: #f1f5f9;
+  --secondary-foreground: #0b1120;
+  --muted: #f8fafc;
   --muted-foreground: #64748b;
-  --accent: #8b5cf6;
+  --accent: #06b6d4;
   --accent-foreground: #ffffff;
   --destructive: #ef4444;
   --destructive-foreground: #ffffff;
   --border: #e2e8f0;
   --input: #e2e8f0;
-  --ring: #f2856d;
+  --ring: #2563eb;
   --success: #10b981;
   --success-foreground: #ffffff;
-  --gradient-start: #f2856d;
-  --gradient-mid: #8b5cf6;
-  --gradient-end: #f39e8a;
+  --gradient-start: #2563eb;
+  --gradient-mid: #3b82f6;
+  --gradient-end: #06b6d4;
   --surface: #f8fafc;
   --surface-secondary: #f1f5f9;
-  --emerald-accent: #10b981;
-  --peach: #f2856d;
-  --peach-light: #f39e8a;
-  --peach-dark: #e06b54;
+  --accent-brand: #06b6d4;
   --radius-lg: 0.75rem;
   --radius-md: 0.5rem;
   --radius-sm: 0.25rem;
 }
 
 .dark {
-  --background: #0f172a;
-  --foreground: #f1f5f9;
-  --card: #1e293b;
-  --card-foreground: #f1f5f9;
-  --popover: #1e293b;
-  --popover-foreground: #f1f5f9;
-  --primary: #f2856d;
-  --primary-foreground: #0a0a0f;
-  --secondary: #334155;
-  --secondary-foreground: #f1f5f9;
-  --muted: #1e293b;
+  --background: #0b1120;
+  --foreground: #e2e8f0;
+  --card: #151d33;
+  --card-foreground: #e2e8f0;
+  --popover: #151d33;
+  --popover-foreground: #e2e8f0;
+  --primary: #3b82f6;
+  --primary-foreground: #ffffff;
+  --secondary: #1e293b;
+  --secondary-foreground: #e2e8f0;
+  --muted: #151d33;
   --muted-foreground: #94a3b8;
-  --accent: #a78bfa;
-  --accent-foreground: #0a0a0f;
+  --accent: #06b6d4;
+  --accent-foreground: #ffffff;
   --destructive: #f87171;
-  --destructive-foreground: #0a0a0f;
-  --border: #334155;
-  --input: #334155;
-  --ring: #f2856d;
-  --success: #34d399;
-  --success-foreground: #0a0a0f;
-  --gradient-start: #f2856d;
-  --gradient-mid: #a78bfa;
-  --gradient-end: #f39e8a;
-  --surface: #1e293b;
-  --surface-secondary: #334155;
-  --emerald-accent: #34d399;
-  --peach: #f2856d;
-  --peach-light: #f39e8a;
-  --peach-dark: #e06b54;
+  --destructive-foreground: #0b1120;
+  --border: #1e293b;
+  --input: #1e293b;
+  --ring: #3b82f6;
+  --success: #10b981;
+  --success-foreground: #0b1120;
+  --gradient-start: #3b82f6;
+  --gradient-mid: #60a5fa;
+  --gradient-end: #22d3ee;
+  --surface: #151d33;
+  --surface-secondary: #1e293b;
+  --accent-brand: #22d3ee;
 }
 
 * {
@@ -132,71 +123,20 @@ body {
     background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-mid) 50%, var(--gradient-end) 100%);
   }
 
-  .bg-gradient-radial {
-    background: radial-gradient(ellipse at center, var(--gradient-start) 0%, transparent 70%);
-  }
-
-  .bg-grid-pattern {
+  .bg-grid {
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-    background-size: 40px 40px;
+      linear-gradient(rgba(37, 99, 235, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(37, 99, 235, 0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
   }
 
-  .animate-gradient {
-    background-size: 200% 200%;
-    animation: gradient-shift 8s ease infinite;
+  .bg-glow {
+    background: radial-gradient(ellipse 50% 50% at 50% 0%, rgba(37, 99, 235, 0.08) 0%, transparent 70%);
   }
 
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
+  .bg-glow-card {
+    background: radial-gradient(ellipse 60% 40% at 50% 100%, rgba(6, 182, 212, 0.06) 0%, transparent 70%);
   }
-
-  .animate-pulse-glow {
-    animation: pulse-glow 3s ease-in-out infinite;
-  }
-
-  .animate-fade-in {
-    animation: fade-in 0.5s ease-out forwards;
-  }
-
-  .animate-slide-up {
-    animation: slide-up 0.5s ease-out forwards;
-  }
-
-  .animate-glow {
-    animation: glow 2s ease-in-out infinite alternate;
-  }
-}
-
-@keyframes gradient-shift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-}
-
-@keyframes pulse-glow {
-  0%, 100% { opacity: 0.4; }
-  50% { opacity: 0.8; }
-}
-
-@keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slide-up {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes glow {
-  from { box-shadow: 0 0 20px rgba(242, 133, 109, 0.2); }
-  to { box-shadow: 0 0 40px rgba(242, 133, 109, 0.4); }
 }
 
 ::selection {

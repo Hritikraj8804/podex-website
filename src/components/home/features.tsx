@@ -1,88 +1,87 @@
-"use client";
-
 import { LayoutDashboard, Puzzle, Bot, Terminal, GitBranch, Search } from "lucide-react";
-import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/ui/animated-section";
-import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 
 const features = [
   {
     icon: LayoutDashboard,
     title: "Visual Dashboard",
-    description: "Real-time cluster health donut, metrics counters, and namespace filtering at a glance.",
-    color: "from-[#f2856d] to-[#e06b54]",
+    description: "Real-time cluster health with donut charts, metrics counters, and namespace filtering. Pulse check your cluster at a glance.",
+    gradient: "from-blue-500 to-blue-600",
+    border: "hover:border-blue-500/30 hover:shadow-blue-500/5",
   },
   {
     icon: Puzzle,
     title: "Arena Playground",
-    description: "Drag-and-drop canvas to wire K8s blocks together and auto-generate valid YAML manifests.",
-    color: "from-[#8b5cf6] to-[#7c3aed]",
+    description: "Drag-and-drop canvas to wire K8s blocks together. Auto-generate valid YAML manifests from your visual design.",
+    gradient: "from-cyan-500 to-cyan-600",
+    border: "hover:border-cyan-500/30 hover:shadow-cyan-500/5",
   },
   {
     icon: Bot,
     title: "AI Concept Tutor",
-    description: "Ask 'What is a Service?' and get real-world analogies plus crash-loop diagnosis with fix suggestions.",
-    color: "from-[#f39e8a] to-[#f2856d]",
+    description: "Ask 'What is a Service?' and get real-world analogies plus crash-loop diagnosis with fix suggestions  no API key needed.",
+    gradient: "from-violet-500 to-violet-600",
+    border: "hover:border-violet-500/30 hover:shadow-violet-500/5",
   },
   {
     icon: Terminal,
     title: "Live Debugging",
-    description: "SSE log streaming and WebSocket-powered interactive terminal shells inside any container.",
-    color: "from-emerald-500 to-emerald-600",
+    description: "SSE log streaming and WebSocket-powered interactive terminal shells inside any container  all from your browser.",
+    gradient: "from-emerald-500 to-emerald-600",
+    border: "hover:border-emerald-500/30 hover:shadow-emerald-500/5",
   },
   {
     icon: GitBranch,
     title: "Topology View",
-    description: "Dynamic SVG map showing relationships between Ingress, Services, Deployments, and Pods.",
-    color: "from-cyan-500 to-cyan-600",
+    description: "Dynamic SVG map showing relationships between Ingress, Services, Deployments, and Pods. Drag, zoom, pan, and filter.",
+    gradient: "from-amber-500 to-amber-600",
+    border: "hover:border-amber-500/30 hover:shadow-amber-500/5",
   },
   {
     icon: Search,
     title: "Cluster Explorer",
-    description: "Browse Pods, Deployments, and Services with inline scale, restart, and delete controls.",
-    color: "from-amber-500 to-amber-600",
+    description: "Browse Pods, Deployments, and Services with inline scale, restart, and delete controls. Full YAML inspection.",
+    gradient: "from-rose-500 to-rose-600",
+    border: "hover:border-rose-500/30 hover:shadow-rose-500/5",
   },
 ];
 
 export function Features() {
   return (
-    <section id="features" className="py-20 lg:py-28">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <AnimatedSection>
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="font-bold text-3xl tracking-tight sm:text-4xl">
-              Everything you need to{" "}
-              <span className="bg-gradient-to-r from-[#f2856d] via-[#8b5cf6] to-[#f39e8a] bg-clip-text text-transparent">
-                master Kubernetes
-              </span>
-            </h2>
-            <p className="mt-4 text-lg text-muted-foreground">
-              Visual tools that make cluster management intuitive, interactive, and beginner-friendly.
-            </p>
+    <section id="features" className="relative border-t border-border py-24 lg:py-32">
+      <div className="bg-glow-card pointer-events-none absolute inset-0" />
+      <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl text-center">
+          <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm font-medium text-primary">
+            Everything you need
           </div>
-        </AnimatedSection>
+          <h2 className="text-4xl font-bold tracking-tight sm:text-5xl">
+            Master Kubernetes{" "}
+            <span className="text-gradient">visually</span>
+          </h2>
+          <p className="mt-4 text-lg text-muted-foreground">
+            Visual tools that make cluster management intuitive, interactive, and beginner-friendly.
+          </p>
+        </div>
 
-        <StaggerContainer className="mx-auto mt-16 grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mx-auto mt-16 grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((feature) => {
             const Icon = feature.icon;
             return (
-              <StaggerItem key={feature.title}>
-                <Card className="group h-full transition-all hover:border-primary/50 hover:shadow-lg hover:shadow-primary/5">
-                  <CardHeader>
-                    <div
-                      className={`mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${feature.color} text-white shadow-lg`}
-                    >
-                      <Icon className="h-6 w-6" />
-                    </div>
-                    <CardTitle className="text-xl">{feature.title}</CardTitle>
-                    <CardDescription className="text-base">
-                      {feature.description}
-                    </CardDescription>
-                  </CardHeader>
-                </Card>
-              </StaggerItem>
+              <div
+                key={feature.title}
+                className={`group relative overflow-hidden rounded-xl border border-border bg-card p-6 transition-all hover:shadow-lg ${feature.border}`}
+              >
+                <div className={`mb-4 inline-flex rounded-lg bg-gradient-to-br ${feature.gradient} p-3 text-white shadow-sm`}>
+                  <Icon className="h-5 w-5" />
+                </div>
+                <h3 className="font-semibold text-foreground">{feature.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {feature.description}
+                </p>
+              </div>
             );
           })}
-        </StaggerContainer>
+        </div>
       </div>
     </section>
   );

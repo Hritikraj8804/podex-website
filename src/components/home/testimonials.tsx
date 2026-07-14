@@ -75,7 +75,7 @@ export function Testimonials() {
                     &ldquo;{t.quote}&rdquo;
                   </p>
                   <div className="mt-6 flex items-center gap-3 border-t border-border pt-4">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-[#f2856d] to-[#8b5cf6] text-sm font-bold text-white">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-[#2563eb] to-[#14b8a6] text-sm font-bold text-white">
                       {t.avatar}
                     </div>
                     <div>

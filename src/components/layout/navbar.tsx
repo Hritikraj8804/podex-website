@@ -1,8 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
+import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils";
 import { navigation } from "@/lib/content-data";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
@@ -14,15 +16,13 @@ export function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const { resolvedTheme } = useTheme();
   const isMobile = useMobile();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  useEffect(() => { setMounted(true); }, []);
+
+  const logoSrc = mounted && resolvedTheme === "dark" ? "/logo-dark.png" : "/logo-light.png";
 
   useEffect(() => {
     setIsOpen(false);
@@ -33,23 +33,25 @@ export function Navbar() {
       className={cn(
         "fixed top-0 z-50 w-full transition-all duration-300",
         scrolled
-          ? "border-b border-border bg-background/80 backdrop-blur-xl"
-          : "bg-transparent"
+          ? "border-b border-border bg-background/95 backdrop-blur-xl shadow-sm"
+          : "border-b border-transparent bg-background/70 backdrop-blur-md"
       )}
     >
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2.5">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-[#f2856d] to-[#8b5cf6]">
-            <svg className="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <circle cx="12" cy="12" r="10" />
-              <circle cx="12" cy="12" r="4" />
-              <circle cx="12" cy="8" r="1" fill="currentColor" />
-              <circle cx="16" cy="12" r="1" fill="currentColor" />
-              <circle cx="12" cy="16" r="1" fill="currentColor" />
-              <circle cx="8" cy="12" r="1" fill="currentColor" />
-            </svg>
+          <div className="h-8 w-24 relative">
+            {mounted ? (
+              <Image
+                src={logoSrc}
+                alt="Podex"
+                fill
+                className="object-contain object-left"
+                priority
+              />
+            ) : (
+              <span className="text-xl font-bold absolute inset-0 flex items-center">Podex</span>
+            )}
           </div>
-          <span className="text-xl font-bold">Podex</span>
         </Link>
 
         {(!isMobile || isOpen) && (
@@ -57,7 +59,7 @@ export function Navbar() {
             className={cn(
               "flex flex-col gap-1",
               isMobile
-                ? "absolute left-0 top-16 w-full border-b border-border bg-background/95 backdrop-blur-xl p-4"
+                ? "absolute left-0 top-16 w-full border-b border-border bg-background/95 backdrop-blur-xl p-4 shadow-lg"
                 : "flex-row items-center gap-1"
             )}
           >
@@ -90,7 +92,7 @@ export function Navbar() {
             </Button>
           ) : (
             <Link href="/download">
-              <Button size="sm">
+              <Button size="sm" className="shadow-sm">
                 <Terminal className="h-4 w-4" />
                 Get Started
               </Button>

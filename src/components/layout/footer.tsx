@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { navigation } from "@/lib/content-data";
 
 const footerLinks = {
@@ -28,19 +29,22 @@ export function Footer() {
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:gap-12">
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-2.5">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-[#f2856d] to-[#8b5cf6]">
-                <svg className="h-5 w-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="12" cy="12" r="10" />
-                  <circle cx="12" cy="12" r="4" />
-                  <circle cx="12" cy="8" r="1" fill="currentColor" />
-                  <circle cx="16" cy="12" r="1" fill="currentColor" />
-                  <circle cx="12" cy="16" r="1" fill="currentColor" />
-                  <circle cx="8" cy="12" r="1" fill="currentColor" />
-                </svg>
+              <div className="h-8 w-24 relative">
+                <Image
+                  src="/logo-light.png"
+                  alt="Podex"
+                  fill
+                  className="object-contain object-left block dark:hidden"
+                />
+                <Image
+                  src="/logo-dark.png"
+                  alt="Podex"
+                  fill
+                  className="object-contain object-left hidden dark:block"
+                />
               </div>
-              <span className="text-xl font-bold">Podex</span>
             </Link>
-            <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
+            <p className="mt-4 text-sm text-muted-foreground leading-relaxed max-w-xs">
               Your visual Kubernetes playground. Explore clusters, design architectures, and learn K8s  all from your browser.
             </p>
           </div>

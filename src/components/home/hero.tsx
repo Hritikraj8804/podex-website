@@ -1,106 +1,72 @@
-"use client";
-
-import { motion, type Variants } from "framer-motion";
-import { Terminal, ArrowRight } from "lucide-react";
 import Link from "next/link";
-import { AnimatedBackground } from "@/components/illustrations/animated-background";
+import { Terminal, ArrowRight } from "lucide-react";
 import { DashboardMockup } from "@/components/illustrations/app-mockups";
-
-const fadeUp: Variants = {
-  hidden: { opacity: 0, y: 24 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.1, duration: 0.6, ease: "easeOut" as const },
-  }),
-};
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden py-20 lg:py-32">
-      <AnimatedBackground />
-      <div className="absolute inset-0 bg-grid-pattern opacity-40" />
+    <section className="relative overflow-hidden">
+      <div className="bg-glow pointer-events-none absolute inset-0" />
+      <div className="bg-grid pointer-events-none absolute inset-0" />
+      <div className="absolute top-1/3 left-1/4 h-96 w-96 rounded-full bg-primary/5 blur-[120px]" />
+      <div className="absolute bottom-0 right-1/4 h-64 w-64 rounded-full bg-accent/5 blur-[100px]" />
 
-      <div className="container relative z-10 mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            className="max-w-2xl"
-          >
-            <motion.div
-              variants={fadeUp}
-              custom={0}
-              className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-muted-foreground backdrop-blur-sm"
+      <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex min-h-[calc(100vh-4rem)] flex-col items-center justify-center py-24 lg:py-32">
+          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm font-medium text-primary">
+            <span className="flex h-2 w-2 rounded-full bg-primary" />
+            v0.1.0  Free and Open Source
+          </div>
+
+          <h1 className="max-w-4xl text-center text-5xl font-bold leading-tight tracking-tight sm:text-6xl lg:text-7xl">
+            Your Kubernetes{" "}
+            <span className="text-gradient">Visual Playground</span>
+          </h1>
+
+          <p className="mt-6 max-w-2xl text-center text-lg leading-relaxed text-muted-foreground">
+            Explore clusters, design architectures with drag-and-drop, stream logs, and learn K8s 
+            all from your browser. Zero config, just{" "}
+            <code className="rounded bg-primary/10 px-1.5 py-0.5 font-mono text-sm text-primary">
+              docker compose up
+            </code>
+            .
+          </p>
+
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+            <Link
+              href="/download"
+              className="group inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-primary px-8 text-base font-medium text-primary-foreground shadow-lg shadow-primary/25 transition-all hover:bg-primary/90 hover:shadow-xl hover:shadow-primary/30 active:scale-[0.98]"
             >
-              <span className="h-2 w-2 rounded-full bg-emerald-500" />
-              Visual Kubernetes Playground
-            </motion.div>
-
-            <motion.h1
-              variants={fadeUp}
-              custom={1}
-              className="font-bold text-4xl leading-tight tracking-tight sm:text-5xl lg:text-6xl"
+              <Terminal className="h-4 w-4" />
+              Get Started
+            </Link>
+            <Link
+              href="/docs"
+              className="group inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-border bg-card px-8 text-base font-medium transition-all hover:bg-secondary hover:shadow-md active:scale-[0.98]"
             >
-              Your Kubernetes{" "}
-              <span className="bg-gradient-to-r from-[#f2856d] via-[#8b5cf6] to-[#f39e8a] bg-clip-text text-transparent">
-                Visual Playground
-              </span>
-            </motion.h1>
-
-            <motion.p
-              variants={fadeUp}
-              custom={2}
-              className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground"
+              View Documentation
+              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+            </Link>
+            <a
+              href="https://github.com/Hritikraj8804/podex"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-border bg-card px-6 text-base font-medium transition-all hover:bg-secondary hover:shadow-md active:scale-[0.98]"
             >
-              Podex transforms your terminal into a drag-and-drop playground
-              with live debugging, AI tutoring, and visual cluster management.
-              Zero config  just{" "}
-              <code className="rounded bg-primary/10 px-1.5 py-0.5 font-mono text-sm text-primary">
-                docker compose up
-              </code>
-              .
-            </motion.p>
+              <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" /></svg>
+              <span className="hidden sm:inline">GitHub</span>
+            </a>
+          </div>
 
-            <motion.div
-              variants={fadeUp}
-              custom={3}
-              className="mt-8 flex flex-wrap items-center gap-4"
-            >
-              <Link
-                href="/download"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-primary px-8 text-base font-medium text-primary-foreground shadow-sm transition-all hover:bg-primary/90 hover:shadow-md active:scale-[0.98]"
-              >
-                <Terminal className="h-4 w-4" />
-                Get Started
-              </Link>
-              <Link
-                href="/docs"
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-border bg-background px-8 text-base font-medium transition-all hover:bg-secondary hover:text-secondary-foreground"
-              >
-                View Docs
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </motion.div>
-
-
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-            className="relative hidden lg:block"
-          >
-            <div className="absolute inset-0 -z-10 rounded-3xl bg-gradient-to-br from-[#f2856d]/20 via-[#8b5cf6]/20 to-[#f39e8a]/20 blur-3xl" />
-            <div className="relative rounded-2xl border border-border/50 bg-card/80 p-2 shadow-2xl backdrop-blur-sm">
-              <DashboardMockup />
+          <div className="mt-20 w-full max-w-5xl">
+            <div className="relative">
+              <div className="absolute -inset-x-8 -inset-y-4 rounded-3xl bg-gradient-to-b from-primary/5 via-accent/5 to-transparent blur-2xl" />
+              <div className="relative rounded-2xl border border-border/60 bg-card shadow-2xl shadow-primary/5">
+                <DashboardMockup />
+              </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
   );
 }
-
-

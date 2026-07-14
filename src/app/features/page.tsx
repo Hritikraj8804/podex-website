@@ -28,7 +28,7 @@ const featureCategories = [
     name: "Explore",
     tagline: "See your cluster like never before",
     description: "Visual tools for understanding your cluster at a glance.",
-    gradient: "from-[#f2856d] to-[#e06b54]",
+    gradient: "from-[#2563eb] to-[#1d4ed8]",
     features: [
       {
         icon: LayoutDashboard,
@@ -57,7 +57,7 @@ const featureCategories = [
     name: "Design",
     tagline: "Build architectures visually",
     description: "Build Kubernetes architectures visually, not with YAML.",
-    gradient: "from-[#8b5cf6] to-[#7c3aed]",
+    gradient: "from-[#14b8a6] to-[#0d9488]",
     features: [
       {
         icon: Puzzle,
@@ -238,20 +238,20 @@ export default function FeaturesPage() {
     <div className="min-h-screen">
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-border px-4 py-24 sm:py-32">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#f2856d]/10 via-[#8b5cf6]/10 to-[#f39e8a]/10" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#2563eb]/10 via-[#14b8a6]/10 to-[#0ea5e9]/10" />
         <div className="absolute inset-0 bg-grid-pattern opacity-30" />
-        <div className="absolute top-1/4 left-1/4 h-72 w-72 rounded-full bg-[#f2856d]/20 blur-[100px]" />
-        <div className="absolute bottom-1/4 right-1/4 h-72 w-72 rounded-full bg-[#8b5cf6]/20 blur-[100px]" />
+        <div className="absolute top-1/4 left-1/4 h-72 w-72 rounded-full bg-[#2563eb]/20 blur-[100px]" />
+        <div className="absolute bottom-1/4 right-1/4 h-72 w-72 rounded-full bg-[#14b8a6]/20 blur-[100px]" />
 
         <div className="relative mx-auto max-w-4xl text-center">
           <AnimatedSection>
             <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-muted-foreground backdrop-blur-sm">
-              <Zap className="h-3.5 w-3.5 text-[#f2856d]" />
+              <Zap className="h-3.5 w-3.5 text-[#2563eb]" />
               Everything in one place
             </div>
             <h1 className="text-5xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl">
               Features that make{" "}
-              <span className="bg-gradient-to-r from-[#f2856d] via-[#8b5cf6] to-[#f39e8a] bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#2563eb] via-[#14b8a6] to-[#0ea5e9] bg-clip-text text-transparent">
                 K8s click
               </span>
             </h1>
@@ -296,7 +296,7 @@ export default function FeaturesPage() {
                 return (
                   <AnimatedSection key={feature.title}>
                     <div className="group relative h-full overflow-hidden rounded-2xl border border-border/50 bg-card/50 p-8 backdrop-blur-sm transition-all duration-500 hover:border-primary/30 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-1">
-                      <div className="absolute -top-20 -right-20 h-40 w-40 rounded-full bg-gradient-to-br from-[#f2856d]/5 to-[#8b5cf6]/5 blur-2xl transition-all duration-500 group-hover:from-[#f2856d]/10 group-hover:to-[#8b5cf6]/10" />
+                      <div className="absolute -top-20 -right-20 h-40 w-40 rounded-full bg-gradient-to-br from-[#2563eb]/5 to-[#14b8a6]/5 blur-2xl transition-all duration-500 group-hover:from-[#2563eb]/10 group-hover:to-[#14b8a6]/10" />
                       <div className={`mb-6 inline-flex rounded-2xl bg-gradient-to-br ${category.gradient} p-3.5 shadow-lg`}>
                         <Icon className="h-6 w-6 text-white" />
                       </div>
@@ -329,12 +329,13 @@ export default function FeaturesPage() {
       <section className="border-b border-border px-4 py-24">
         <div className="mx-auto max-w-6xl">
           <AnimatedSection>
-            <div className="mb-16 text-center">
-              <h2 className="text-3xl font-bold text-foreground sm:text-4xl">
+            <div className="mb-12 text-center">
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-sm font-medium text-primary">
+                Comparison
+              </div>
+              <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
                 How does Podex{" "}
-                <span className="bg-gradient-to-r from-[#f2856d] via-[#8b5cf6] to-[#f39e8a] bg-clip-text text-transparent">
-                  compare
-                </span>
+                <span className="text-gradient">compare</span>
                 ?
               </h2>
               <p className="mx-auto mt-3 max-w-2xl text-lg text-muted-foreground">
@@ -344,61 +345,38 @@ export default function FeaturesPage() {
           </AnimatedSection>
 
           <AnimatedSection>
-            <div className="overflow-x-auto rounded-2xl border border-border/50 bg-card/50 backdrop-blur-sm">
-              <table className="w-full text-left text-sm">
+            <div className="overflow-x-auto rounded-xl border border-border">
+              <table className="w-full">
                 <thead>
-                  <tr className="border-b border-border/50">
-                    <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                      Feature
-                    </th>
-                    <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wider">
-                      <span className="bg-gradient-to-r from-[#f2856d] to-[#8b5cf6] bg-clip-text text-transparent">
-                        Podex
-                      </span>
-                    </th>
-                    <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                      kubectl
-                    </th>
-                    <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                      Lens
-                    </th>
-                    <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                      K9s
-                    </th>
-                    <th className="px-6 py-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                      Octant
-                    </th>
+                  <tr className="border-b border-border bg-muted/50">
+                    <th className="px-5 py-3.5 text-left text-xs font-semibold uppercase tracking-wider text-muted-foreground">Feature</th>
+                    {["Podex", "kubectl", "Lens", "K9s", "Octant"].map((name) => (
+                      <th key={name} className="px-5 py-3.5 text-left text-xs font-semibold uppercase tracking-wider">
+                        <span className={name === "Podex" ? "text-primary" : "text-muted-foreground"}>{name}</span>
+                      </th>
+                    ))}
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-border/50">
-                  {comparisons.map((row) => (
-                    <tr
-                      key={row.feature}
-                      className="transition-colors hover:bg-white/[0.02]"
-                    >
-                      <td className="px-6 py-4 font-medium text-foreground whitespace-nowrap">
-                        {row.feature}
-                      </td>
-                      {["Podex", "Kubectl", "Lens", "K9s", "Octant"].map((col) => {
-                        const val = row[col as keyof typeof row];
+                  {comparisons.map((row, i) => (
+                    <tr key={row.feature} className={`transition-colors ${i % 2 === 0 ? "bg-card" : "bg-muted/20"} hover:bg-primary/[0.02]`}>
+                      <td className="px-5 py-3.5 text-sm font-medium text-foreground whitespace-nowrap">{row.feature}</td>
+                      {(["Podex", "Kubectl", "Lens", "K9s", "Octant"] as const).map((col) => {
+                        const val = row[col];
                         const isPodex = col === "Podex";
-                        const isPositive = val?.startsWith("✅") || val?.startsWith("~");
+                        const isYes = val?.startsWith("✅");
+                        const isNo = val?.startsWith("❌");
+                        const isWarn = val?.startsWith("⚠️");
+                        const isNA = val === "N/A";
+                        const display = val?.replace(/^[✅❌⚠️~]+\s*/, "") || "";
                         return (
-                          <td
-                            key={col}
-                            className={`px-6 py-4 whitespace-nowrap text-xs ${
-                              isPodex
-                                ? "font-semibold text-[#f2856d]"
-                                : isPositive
-                                  ? "text-emerald-500"
-                                  : val === "❌"
-                                    ? "text-red-500/60"
-                                    : val?.startsWith("⚠️")
-                                      ? "text-yellow-500"
-                                      : "text-muted-foreground"
-                            }`}
-                          >
-                            {val}
+                          <td key={col} className={`px-5 py-3.5 text-sm whitespace-nowrap ${isPodex ? "font-medium text-primary" : isYes ? "text-emerald-600 dark:text-emerald-400" : isNo ? "text-red-500/50" : isWarn ? "text-amber-500" : isNA ? "text-muted-foreground/40" : "text-muted-foreground"}`}>
+                            <span className="flex items-center gap-1.5">
+                              {isYes && <span className="flex-shrink-0 h-1.5 w-1.5 rounded-full bg-emerald-500" />}
+                              {isNo && <span className="flex-shrink-0 h-1.5 w-1.5 rounded-full bg-red-500/50" />}
+                              {isWarn && <span className="flex-shrink-0 h-1.5 w-1.5 rounded-full bg-amber-500" />}
+                              {display || val}
+                            </span>
                           </td>
                         );
                       })}
@@ -409,8 +387,8 @@ export default function FeaturesPage() {
             </div>
           </AnimatedSection>
 
-          <AnimatedSection className="mt-12 text-center">
-            <p className="text-sm text-muted-foreground">
+          <AnimatedSection className="mt-10 text-center">
+            <p className="text-sm text-muted-foreground max-w-xl mx-auto">
               Podex is the only tool that combines visual cluster management, drag-and-drop
               architecture design, AI tutoring, and live debugging  all in your browser,
               fully open source.
@@ -423,9 +401,9 @@ export default function FeaturesPage() {
       <section className="px-4 py-24">
         <div className="mx-auto max-w-4xl text-center">
           <AnimatedSection>
-            <div className="relative overflow-hidden rounded-3xl border border-border/50 bg-gradient-to-br from-[#f2856d]/10 via-[#8b5cf6]/10 to-[#f39e8a]/10 px-8 py-16 backdrop-blur-sm sm:px-16">
-              <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-[#f2856d]/20 blur-3xl" />
-              <div className="absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-[#8b5cf6]/20 blur-3xl" />
+            <div className="relative overflow-hidden rounded-3xl border border-border/50 bg-gradient-to-br from-[#2563eb]/10 via-[#14b8a6]/10 to-[#0ea5e9]/10 px-8 py-16 backdrop-blur-sm sm:px-16">
+              <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-[#2563eb]/20 blur-3xl" />
+              <div className="absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-[#14b8a6]/20 blur-3xl" />
               <div className="relative z-10">
                 <h2 className="text-3xl font-bold text-foreground sm:text-4xl">
                   Ready to try Podex?
@@ -437,7 +415,7 @@ export default function FeaturesPage() {
                 <div className="mt-8 flex flex-wrap justify-center gap-4">
                   <Link
                     href="/download"
-                    className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#f2856d] to-[#e06b54] px-8 text-base font-medium text-white shadow-lg shadow-[#f2856d]/25 transition-all hover:shadow-xl hover:shadow-[#f2856d]/30 hover:scale-[1.02] active:scale-[0.98]"
+                    className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#2563eb] to-[#1d4ed8] px-8 text-base font-medium text-white shadow-lg shadow-[#2563eb]/25 transition-all hover:shadow-xl hover:shadow-[#2563eb]/30 hover:scale-[1.02] active:scale-[0.98]"
                   >
                     <Zap className="h-4 w-4" />
                     Get Started Now

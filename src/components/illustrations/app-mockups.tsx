@@ -34,8 +34,8 @@ export function DashboardMockup({ className }: { className?: string }) {
       <div className="bg-background p-4">
         <div className="mb-4 grid grid-cols-4 gap-3">
           {[
-            { label: "Nodes", value: "3", color: "text-[#f2856d]" },
-            { label: "Pods", value: "24", color: "text-[#8b5cf6]" },
+            { label: "Nodes", value: "3", color: "text-emerald-500" },
+            { label: "Pods", value: "24", color: "text-blue-500" },
             { label: "Deployments", value: "12", color: "text-emerald-500" },
             { label: "Services", value: "8", color: "text-cyan-500" },
           ].map((stat) => (
@@ -47,9 +47,10 @@ export function DashboardMockup({ className }: { className?: string }) {
         </div>
         <div className="flex items-center gap-4 rounded-lg border border-border bg-surface p-4">
           <svg viewBox="0 0 80 80" className="h-20 w-20 shrink-0">
-            <circle cx="40" cy="40" r="35" fill="none" stroke="currentColor" strokeWidth="8" className="text-border" />
-            <circle cx="40" cy="40" r="35" fill="none" stroke="#f2856d" strokeWidth="8" strokeDasharray="180 40" strokeDashoffset="10" strokeLinecap="round" transform="rotate(-90, 40, 40)" />
-            <circle cx="40" cy="40" r="35" fill="none" stroke="#10b981" strokeWidth="8" strokeDasharray="200 20" strokeDashoffset="190" strokeLinecap="round" transform="rotate(-90, 40, 40)" />
+            <circle cx="40" cy="40" r="35" fill="none" stroke="#334155" strokeWidth="8" className="opacity-20" />
+            <circle cx="40" cy="40" r="35" fill="none" stroke="#10b981" strokeWidth="8" strokeDasharray="183.3 36.7" strokeDashoffset="0" transform="rotate(-90, 40, 40)" />
+            <circle cx="40" cy="40" r="35" fill="none" stroke="#f59e0b" strokeWidth="8" strokeDasharray="18.3 201.7" strokeDashoffset="183.3" transform="rotate(-90, 40, 40)" />
+            <circle cx="40" cy="40" r="35" fill="none" stroke="#ef4444" strokeWidth="8" strokeDasharray="18.3 201.7" strokeDashoffset="201.7" transform="rotate(-90, 40, 40)" />
           </svg>
           <div>
             <div className="text-sm font-medium text-foreground">Cluster Health</div>

@@ -43,7 +43,7 @@ export default function DownloadPage() {
             <div className="mt-10 space-y-8">
               <div className="rounded-xl border border-border bg-card p-6">
                 <div className="flex items-start gap-4">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#f2856d]/10 text-[#f2856d]">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#2563eb]/10 text-[#2563eb]">
                     <span className="font-bold text-lg">1</span>
                   </div>
                   <div className="flex-1 min-w-0">
@@ -62,7 +62,7 @@ export default function DownloadPage() {
 
               <div className="rounded-xl border border-border bg-card p-6">
                 <div className="flex items-start gap-4">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#8b5cf6]/10 text-[#8b5cf6]">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#14b8a6]/10 text-[#14b8a6]">
                     <span className="font-bold text-lg">2</span>
                   </div>
                   <div className="flex-1 min-w-0">
