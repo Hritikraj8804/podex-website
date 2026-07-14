@@ -1,199 +1,156 @@
-# Podex
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/github/stars/Hritikraj8804/podex?style=for-the-badge&logo=github&color=f2856d">
+  <img alt="GitHub stars" src="https://img.shields.io/github/stars/Hritikraj8804/podex?style=for-the-badge&logo=github&color=f2856d">
+</picture>
 
-> Kubernetes, without the complexity.
+<div align="center">
+  <br/>
+  <h1>Podex</h1>
+  <p><strong>Your Visual Kubernetes Playground</strong></p>
+  <p>Explore clusters, design architectures with drag-and-drop, troubleshoot with AI —<br/>all from your browser. No terminal required, no YAML headaches.</p>
 
-Podex is the desktop browser for Kubernetes. Explore clusters, manage pods, stream logs, and deploy applications with a visual interface. Think Docker Desktop, but for Kubernetes.
+  <br/>
 
-## Tech Stack
+  <a href="https://github.com/Hritikraj8804/podex/stargazers"><img src="https://img.shields.io/github/stars/Hritikraj8804/podex?style=flat-square&logo=github&color=f2856d" alt="Stars"/></a>
+  <a href="https://github.com/Hritikraj8804/podex/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="License"/></a>
+  <a href="https://github.com/Hritikraj8804/podex/issues"><img src="https://img.shields.io/github/issues/Hritikraj8804/podex?style=flat-square" alt="Issues"/></a>
 
-- **Framework:** Next.js 16 (App Router)
-- **Language:** TypeScript
-- **Styling:** Tailwind CSS v4
-- **Animations:** Framer Motion
-- **Icons:** Lucide React
-- **Theming:** next-themes (dark/light mode)
-- **Testing:** Jest + React Testing Library
+  <br/><br/>
 
-## Getting Started
+  <a href="/download">Get Started →</a>
+  &nbsp;&nbsp;·&nbsp;&nbsp;
+  <a href="/docs">Documentation</a>
+  &nbsp;&nbsp;·&nbsp;&nbsp;
+  <a href="/features">Features</a>
+  &nbsp;&nbsp;·&nbsp;&nbsp;
+  <a href="https://github.com/Hritikraj8804/podex">GitHub</a>
 
-### Prerequisites
+  <br/><br/>
+</div>
 
-- Node.js 18+
-- npm, yarn, or pnpm
+---
 
-### Installation
+## What is Podex?
+
+Podex is a **local, visual Kubernetes cluster examiner and interactive playground** designed for beginners and students. It transforms cluster administration from a text-heavy terminal experience into an interactive, visual, and AI-toured playground.
+
+### Why Podex?
+
+- **Visual-First** — Drag-and-drop workflow modeling canvas (the Arena) where you wire cards together and see YAML generate dynamically
+- **AI-Powered** — LLM-based concepts tutor alongside live resources. Ask *"What is a Service?"* and get analogies based on your live cluster state
+- **Zero Setup** — Containerized stack via Docker Compose that connects to any local Kubeconfig. Start in minutes
+
+---
+
+## Quick Start
 
 ```bash
-# Clone the repository
-git clone https://github.com/podex/podex-website.git
-cd podex-website
-
-# Install dependencies
-npm install
-
-# Start the development server
-npm run dev
+git clone https://github.com/Hritikraj8804/podex.git
+cd podex
+docker compose up --build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open **http://localhost:3000** in your browser.
 
-### Available Scripts
+> **Prerequisites:** Docker + Docker Compose and a local Kubernetes cluster (Kind, Minikube, or Docker Desktop K8s).
 
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Start development server |
-| `npm run build` | Create production build |
-| `npm run start` | Start production server |
-| `npm run lint` | Run ESLint |
-| `npm test` | Run tests |
-
-## Project Structure
-
-```
-src/
-├── app/                          # Next.js App Router pages
-│   ├── layout.tsx                # Root layout (Navbar, Footer, ThemeProvider)
-│   ├── page.tsx                  # Home page
-│   ├── not-found.tsx             # Custom 404 page
-│   ├── error.tsx                 # Error boundary
-│   ├── loading.tsx               # Loading state
-│   ├── globals.css               # Global styles + Tailwind config
-│   ├── sitemap.ts                # Dynamic sitemap generation
-│   ├── robots.ts                 # Robots.txt generation
-│   ├── features/
-│   │   └── page.tsx              # Features page
-│   ├── download/
-│   │   └── page.tsx              # Download page
-│   ├── about/
-│   │   └── page.tsx              # About page
-│   ├── docs/
-│   │   ├── page.tsx              # Documentation index
-│   │   └── [slug]/
-│   │       └── page.tsx          # Dynamic doc pages
-│   └── blog/
-│       ├── page.tsx              # Blog listing
-│       ├── blog-list.tsx         # Client-side blog grid
-│       └── [slug]/
-│           └── page.tsx          # Dynamic blog posts
-├── components/
-│   ├── ui/                       # Reusable UI primitives
-│   │   ├── button.tsx            # Button component
-│   │   ├── card.tsx              # Card component
-│   │   ├── badge.tsx             # Badge component
-│   │   ├── accordion.tsx         # Accordion component
-│   │   ├── code-block.tsx        # Code block with syntax display
-│   │   ├── theme-toggle.tsx      # Dark/light mode toggle
-│   │   └── animated-section.tsx  # Scroll-triggered animations
-│   ├── layout/                   # Layout components
-│   │   ├── navbar.tsx            # Navigation bar
-│   │   ├── footer.tsx            # Site footer
-│   │   └── theme-provider.tsx    # Theme context provider
-│   ├── home/                     # Home page sections
-│   │   ├── hero.tsx              # Hero section
-│   │   ├── features.tsx          # Features grid
-│   │   ├── how-it-works.tsx      # How it works steps
-│   │   ├── screenshots.tsx       # Tabbed app mockups
-│   │   ├── testimonials.tsx      # Testimonial cards
-│   │   ├── pricing.tsx           # Pricing tiers
-│   │   ├── faq.tsx               # FAQ accordion
-│   │   └── cta.tsx               # Call to action
-│   ├── illustrations/            # SVG illustrations
-│   │   ├── animated-background.tsx  # Canvas particle animation
-│   │   ├── cluster-diagram.tsx      # K8s cluster diagram
-│   │   └── app-mockups.tsx          # UI mockup components
-│   └── command-palette.tsx       # Cmd+K command palette
-├── hooks/                        # Custom React hooks
-│   ├── use-mobile.ts             # Responsive breakpoint hook
-│   └── use-keyboard-shortcut.ts  # Keyboard shortcut hook
-└── lib/                          # Utilities and data
-    ├── utils.ts                  # cn() utility function
-    └── content-data.ts           # Blog posts + docs content
-tests/                            # Test files
-```
+---
 
 ## Features
 
-### Pages
+| Feature | Description |
+|---------|-------------|
+| **Visual Dashboard** | Real-time health donut chart, metrics counters, namespace filtering |
+| **Cluster Explorer** | Interactive tables for Pods, Deployments, Services — with inline scale/restart/delete |
+| **Arena Playground** | Drag-and-drop React Flow canvas. Wire K8s blocks together and auto-generate YAML |
+| **Topology View** | Dynamic SVG map of resource relationships (Ingress → Service → Deployment → Pod) |
+| **Live Log Streaming** | Container logs via SSE with auto-reconnect, configurable tail limits |
+| **Interactive Terminal** | WebSocket-powered shell sessions inside any container |
+| **AI Concept Tutor** | Ask questions, get real-world analogies and common pitfalls |
+| **AI Troubleshooter** | One-click diagnosis — root cause, evidence list, and fix suggestions |
 
-- **Home** - Hero, features, how it works, screenshots, testimonials, pricing, FAQ, CTA
-- **Features** - Detailed feature grid across 4 categories (18 features)
-- **Download** - Platform cards, system requirements, release notes, checksums
-- **Documentation** - Sidebar navigation, 8 docs across 3 categories
-- **Blog** - 5 articles with author cards, related posts
-- **About** - Mission, vision, story, roadmap, team
+---
 
-### Components
+## Architecture
 
-- Animated gradient backgrounds with canvas particles
-- Scroll-triggered fade/slide animations via Framer Motion
-- Dark/light theme toggle
-- Command palette (Cmd+K / Ctrl+K)
-- Custom Kubernetes cluster diagram (SVG)
-- App UI mockups (Pods, Logs, Deployments)
-- FAQ accordion with smooth transitions
-- Pricing toggle (monthly/yearly)
-
-### Technical
-
-- Server-side rendering with React Server Components
-- Static site generation for docs and blog
-- Dynamic sitemap and robots.txt
-- Open Graph / Twitter Card metadata
-- Responsive design (mobile-first)
-- Custom 404 page
-- Error boundary with reset
-- Loading states
-- Keyboard navigation support
-
-## Design System
-
-### Colors
-
-| Token | Light | Dark | Usage |
-|-------|-------|------|-------|
-| Primary | `#6366f1` | `#818cf8` | Buttons, links, accents |
-| Accent | `#a855f7` | `#c084fc` | Highlights, badges |
-| Emerald | `#10b981` | `#34d399` | Success states, status |
-| Gradient | Blue → Purple → Cyan | Same (brighter) | Hero backgrounds, CTAs |
-
-### Typography
-
-- **Sans:** Geist (system-ui fallback)
-- **Mono:** Geist Mono (monospace)
-
-## Deployment
-
-### Vercel (Recommended)
-
-```bash
-npx vercel
+```
+Browser / UI
+    │
+    ▼
+React Frontend ──REST/SSE/WS──► FastAPI Backend
+                                    │
+                                    ├──► Python K8s Client ──► Local Cluster (Kind/Minikube)
+                                    │
+                                    └──► Gemini / OpenAI API (or Mock fallback)
 ```
 
-### Docker
+Podex is a **two-tier local daemon** running via Docker Compose:
+- **Tier 1:** React (Vite + TypeScript + Tailwind CSS) runs in your browser
+- **Tier 2:** FastAPI (Python) proxies requests to your Kubernetes API server
 
-```bash
-docker build -t podex-website .
-docker run -p 3000:3000 podex-website
+No data leaves your machine. Podex inherits your exact kubectl permissions.
+
+---
+
+```mermaid
+graph TD
+    subgraph "podex/"
+        A["docker-compose.yml"]
+        subgraph "backend/"
+            B1["ai/ — LLM providers"]
+            B2["api/ — REST + WS endpoints"]
+            B3["kubernetes/ — K8s client"]
+            B4["services/ — Queries + AI"]
+        end
+        subgraph "frontend/"
+            C1["src/components/ — UI panels"]
+            C2["App.tsx — Tab router"]
+            C3["main.tsx — Entry point"]
+        end
+        subgraph "docker/"
+            D1["Dockerfile.backend"]
+            D2["Dockerfile.frontend"]
+            D3["nginx.conf"]
+        end
+    end
 ```
 
-### Static Export
+---
 
-```bash
-npm run build
-# Output in .next/
-```
+## Tech Stack
 
-## Roadmap
+| Layer | Technology |
+|-------|-----------|
+| **Frontend** | React 19, Vite, TypeScript, Tailwind CSS |
+| **Backend** | Python, FastAPI, Uvicorn |
+| **Kubernetes** | Official python client, KubeConfig auth |
+| **AI** | Google Gemini, OpenAI, Mock providers |
+| **Containerization** | Docker, Docker Compose |
+| **Monitoring** | Prometheus, Grafana (optional) |
 
-- [ ] Interactive Kubernetes cluster visualization
-- [ ] Animated terminal simulator
-- [ ] Live search across all content
-- [ ] Theme customization system
-- [ ] AI chat placeholder
-- [ ] Interactive onboarding walkthrough
-- [ ] PWA support
-- [ ] Multi-language support
+---
+
+## Contributing
+
+We welcome contributions from developers of all experience levels.
+
+1. Set up a local Kind cluster: `kind create cluster --name podex`
+2. Clone the repo and follow the [Quick Start](#quick-start)
+3. Open issues for bugs or feature requests
+4. Submit PRs for review
+
+**Areas to help:** Unit tests (pytest + vitest), documentation, integration tests, and new features listed in the [roadmap](/docs/installation#roadmap).
+
+---
+
+## Community
+
+- 🐛 [Issues](https://github.com/Hritikraj8804/podex/issues) — Report bugs or request features
+- 💬 [Discussions](https://github.com/Hritikraj8804/podex/discussions) — Ask questions and share ideas
+- ⭐ [Star the repo](https://github.com/Hritikraj8804/podex) — Show your support
+
+---
 
 ## License
 
-MIT License. See [LICENSE](LICENSE) for details.
+[MIT License](LICENSE) — free to use, modify, and distribute.

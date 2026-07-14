@@ -85,7 +85,7 @@ export default function DownloadPage() {
                     <p className="mt-2 text-muted-foreground">
                       Navigate to{" "}
                       <code className="rounded bg-primary/10 px-1.5 py-0.5 font-mono text-sm text-primary">
-                        http://localhost:5173
+                        http://localhost:3000
                       </code>{" "}
                       and start exploring your cluster.
                     </p>
@@ -219,7 +219,7 @@ export default function DownloadPage() {
                   <div><span className="text-emerald-500">$</span> <span className="text-primary">npm run dev</span></div>
                 </div>
                 <p className="mt-2 text-xs text-muted-foreground">
-                  Runs on <code className="text-primary">http://localhost:5173</code>
+                  Runs on <code className="text-primary">http://localhost:3000</code>
                 </p>
               </div>
             </div>

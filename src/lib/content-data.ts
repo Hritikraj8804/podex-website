@@ -53,12 +53,12 @@ docker compose up --build
 \`\`\`
 
 This builds and launches two services:
-1. **Frontend UI** — reachable at \`http://localhost:5173\`
+1. **Frontend UI** — reachable at \`http://localhost:3000\`
 2. **Backend Daemon** — reachable at \`http://localhost:8000\`
 
 ### Step 3: Open Your Browser
 
-Navigate to \`http://localhost:5173\`. Podex automatically detects your active Kubernetes context from \`~/.kube/config\` and loads your cluster dashboard.
+Navigate to \`http://localhost:3000\`. Podex automatically detects your active Kubernetes context from \`~/.kube/config\` and loads your cluster dashboard.
 
 ### That's It!
 
@@ -82,7 +82,7 @@ npm install
 npm run dev
 \`\`\`
 
-The frontend dev server runs on \`http://localhost:5173\` and connects directly to your local kubeconfig without container network address overrides.
+The frontend dev server runs on \`http://localhost:3000\` and connects directly to your local kubeconfig without container network address overrides.
 `,
   },
   {
@@ -177,7 +177,7 @@ This builds:
 1. **Backend container** (port \`8000\`) — Python FastAPI server
 2. **Frontend container** (port \`5173\`) — Nginx serving React app + proxying API
 
-Access the UI at \`http://localhost:5173\`.
+Access the UI at \`http://localhost:3000\`.
 
 ### Environment Variables
 
