@@ -9,7 +9,6 @@ export const navigation: NavItem[] = [
   { title: "Features", href: "/features" },
   { title: "Download", href: "/download" },
   { title: "Documentation", href: "/docs" },
-  { title: "Blog", href: "/blog" },
   { title: "About", href: "/about" },
 ];
 
@@ -43,7 +42,7 @@ Podex is a local, visual Kubernetes cluster examiner and interactive playground.
 ### Step 1: Clone the Repository
 
 \`\`\`bash
-git clone https://github.com/your-org/podex.git
+git clone https://github.com/Hritikraj8804/podex.git
 cd podex
 \`\`\`
 
@@ -169,7 +168,7 @@ kubectl cluster-info
 ### Running Podex
 
 \`\`\`bash
-git clone https://github.com/your-org/podex.git
+git clone https://github.com/Hritikraj8804/podex.git
 cd podex
 docker compose up --build
 \`\`\`
@@ -490,7 +489,7 @@ We welcome contributions from the community!
 
 2. Clone the repository:
    \`\`\`bash
-   git clone https://github.com/your-org/podex.git
+   git clone https://github.com/Hritikraj8804/podex.git
    cd podex
    \`\`\`
 
@@ -520,241 +519,6 @@ We welcome contributions from the community!
 - Python: Follow PEP 8, lint with \`ruff\`
 - TypeScript/React: ESLint + Prettier
 - Use the existing component patterns and Tailwind classes
-`,
-  },
-];
-
-export const blogPosts = [
-  {
-    slug: "introducing-podex",
-    title: "Introducing Podex: Your Visual Kubernetes Playground",
-    excerpt: "Podex is a local, visual Kubernetes cluster examiner designed to lower the entry barrier for beginners and students.",
-    date: "2026-06-30",
-    author: "Podex Team",
-    role: "Core Maintainers",
-    category: "Announcement",
-    readTime: "4 min read",
-    content: `
-## Why Podex?
-
-Kubernetes is powerful — but its learning curve is brutal. If you're new to DevOps, staring at a terminal running \`kubectl\` commands and debugging YAML indentation errors is intimidating.
-
-We built Podex to change that.
-
-## The Vision
-
-To lower the entry barrier to Kubernetes by transforming cluster administration from a text-heavy terminal-based command experience into an **interactive, visual, and AI-toured playground**.
-
-No more YAML headaches. No more cryptic error messages without context.
-
-## What Makes Podex Different?
-
-### Visual-First Mentality
-A drag-and-drop workflow modeling canvas (the Arena) where you wire cards together and see configurations generate dynamic YAML — rather than typing YAML manually.
-
-### Context-Aware AI Tutor
-LLM-based concepts tutor integrated alongside live resources. Ask "What is a Service?" and get analogies based on your live cluster state.
-
-### Zero-Setup Instant Run
-Containerized stack via Docker Compose that connects automatically to any local Kubeconfig context. Start in minutes, not hours.
-
-## The Stack
-
-- **Frontend**: React / Vite / TypeScript / Tailwind CSS
-- **Backend**: FastAPI / Python
-- **Containerization**: Docker / Docker Compose
-- **AI**: Google Gemini / OpenAI (with offline mock fallback)
-
-## Getting Started
-
-\`\`\`bash
-git clone https://github.com/your-org/podex.git
-cd podex
-docker compose up --build
-\`\`\`
-
-Then open \`http://localhost:5173\` and start exploring.
-
-Podex is free, open source, and built for learners. Welcome to the playground.
-`,
-  },
-  {
-    slug: "podex-1-1-release",
-    title: "Podex 1.1: Peach Accents, Arena Overhaul, and Topology Redesign",
-    excerpt: "Our latest release brings a refined dark theme, a completely rebuilt Arena canvas, and a dynamic topology visualizer.",
-    date: "2026-07-12",
-    author: "Podex Team",
-    role: "Core Maintainers",
-    category: "Release Notes",
-    readTime: "5 min read",
-    content: `
-## What's New in Podex 1.1
-
-### Custom Peach Accent Theme
-A new **Peach** accent color (\`#f2856d\`) inspired by the YunoHost project is now the default highlight. You can also choose from cyan, indigo, violet, emerald, and amber in the Settings panel.
-
-### Redesigned Dark Mode
-The entire dashboard has been migrated to a deep navy palette using CSS custom properties. Say goodbye to the old purple-tinted backgrounds — everything is cleaner, more professional, and CNCF-inspired.
-
-### Arena Overhaul
-The Arena has been completely rebuilt on **React Flow**:
-- Interactive pan/zoom canvas with minimap
-- Snap grid for clean layouts
-- Custom hexagonal K8s node components with color-coded accent stripes
-- Compact 100px nodes for tighter spacing
-- Smart onboarding that shows only once per session
-
-### Topology Redesign
-The Topology tab now features:
-- Dark tech-grid canvas background
-- Column-based layout organized by resource type
-- Animated SVG bezier connection lines
-- Derived Service → Deployment edges from shared Pod connections
-- Search filtering that also hides connected edges
-- Reset View that restores zoom, pan, and custom node positions
-
-### YAML Editor Improvements
-- Line numbers for easier debugging
-- Format button for clean indentation
-- Dark/light theme-adaptive textarea
-
-### Bug Fixes
-- Light mode colors now work correctly in the Topology tab
-- Fixed status mapping in topology health indicators
-- Template loading properly auto-centers the canvas
-- Onboarding popup only appears once per session
-`,
-  },
-  {
-    slug: "kubernetes-debugging-guide",
-    title: "Debugging Kubernetes with Podex: A Beginner's Guide",
-    excerpt: "Learn how to diagnose and resolve common Kubernetes issues using Podex's visual tools.",
-    date: "2026-07-14",
-    author: "Podex Team",
-    role: "Core Maintainers",
-    category: "Tutorial",
-    readTime: "7 min read",
-    content: `
-## Debugging Doesn't Have to Be Painful
-
-Your pod is in CrashLoopBackOff. The terminal is showing a wall of text. Where do you even start?
-
-Here's how Podex makes debugging visual and intuitive.
-
-### Step 1: Check the Dashboard
-Open Podex and look at the health donut. A quick glance tells you if pods are failing. The metrics counters show node count, pod count, and deployment status at a glance.
-
-### Step 2: Open the Explorer
-Navigate to the Explorer tab and find your failing pod. Click it to open the detail drawer. You'll see:
-- **Status** — Current pod phase and conditions
-- **Restart count** — How many times it's crashed
-- **Node** — Where it's running
-
-### Step 3: Read the Events
-Switch to the Events tab in the drawer. Kubernetes events tell you exactly what's happening:
-- Image pull attempts and failures
-- Scheduling decisions
-- Container starts and stops
-- Liveness/readiness probe results
-
-### Step 4: Stream the Logs
-Open the Logs tab. If the pod crashed and restarted, toggle **Previous** to see logs from the crashed instance. Look for:
-- Application error messages
-- Missing configuration or environment variables
-- Database connection failures
-- OOM killer messages
-
-### Step 5: Use the AI Troubleshooter
-Click **Investigate** to let Podex's AI analyze the situation. It will:
-1. Fetch the pod status, container configs, event timeline, and recent logs
-2. Formulate a structured diagnosis with root cause
-3. Show evidence in bullet points
-4. Suggest a concrete fix
-5. Explain it with a beginner-friendly analogy
-
-### Step 6: Exec into the Container
-If the pod is running but behaving oddly, use the **Terminal** tab to exec in. Check:
-- File system contents
-- Environment variables
-- Network connectivity
-- Application config files
-
-### Common Issues & Solutions
-
-**CrashLoopBackOff**
-1. Check logs for the error message
-2. Verify environment variables are set
-3. Ensure ConfigMaps and Secrets exist
-4. Check that the image tag is correct
-
-**Pending Pods**
-1. Check node resources (CPU/memory)
-2. Verify node selectors and taints
-3. Look at events for scheduling errors
-4. Check PVC binding status
-
-**Service Not Reachable**
-1. Verify the service selector matches pod labels
-2. Check target pods are running
-3. Confirm correct port configuration
-4. Test pod-to-pod connectivity
-
-### Pro Tips
-- Use Podex's search to quickly find pods by name or label
-- Export logs before deleting a crashed pod
-- Use the Topology view to understand resource relationships
-- The AI Tutor works offline with mock providers
-`,
-  },
-  {
-    slug: "podex-architecture-deep-dive",
-    title: "Under the Hood: Podex Architecture Deep Dive",
-    excerpt: "How Podex's two-tier architecture connects your browser to your Kubernetes cluster.",
-    date: "2026-07-16",
-    author: "Podex Team",
-    role: "Core Maintainers",
-    category: "Engineering",
-    readTime: "6 min read",
-    content: `
-## Architecture Overview
-
-Podex is a **two-tier local daemon** running via Docker Compose. It binds directly to your active local Kubernetes cluster with no intermediary database or cloud service.
-
-### Tier 1: React Frontend
-Built with React, Vite, TypeScript, and Tailwind CSS. The frontend is a single-page application with six tab panels:
-
-- **DashboardTab** — Inline SVG health donut chart + aggregated metrics
-- **ExplorerTab** — Interactive resource tables with inline scale/restart/delete
-- **TopologyDiagramTab** — SVG-based resource relationship mapping with pan/zoom
-- **ArenaTab** — React Flow drag-and-drop canvas with snap grid and minimap
-- **LearnTab** — AI query interface for concept explanations
-- **SettingsTab** — Accent color, theme, API keys, and log preferences
-
-### Tier 2: FastAPI Backend
-The Python backend is stateless by design:
-- **main.py** — FastAPI app with CORS, routes, and WebSocket mount points
-- **api/routes.py** — REST endpoints for stats, pod lists, scaling, restarts, deletions
-- **api/terminal.py** — WebSocket handler for interactive container shells
-- **kubernetes/client.py** — Auto-configures connection to active cluster, patches Docker addresses
-- **services/k8s_service.py** — Core cluster queries and operations
-- **services/investigation_service.py** — Prepares structured logs and events for AI diagnosis
-- **ai/provider.py** — Interface for Gemini/OpenAI/mock providers
-- **ai/prompts.py** — Structured prompt templates for concept explanation and diagnosis
-
-### Stateless Design
-Podex has **no database**. The Kubernetes cluster itself is the single source of truth. All listings, statuses, and configurations are queried in real-time via the api-server. User preferences (accent color, theme, API keys) are persisted in the browser's localStorage.
-
-Benefits:
-- Zero data drift between UI and cluster state
-- No database containers needed in docker-compose.yml
-- No migration overhead when upgrading
-
-### Connection Flow
-1. User opens the browser → React app loads
-2. React calls FastAPI REST endpoints
-3. FastAPI proxies requests to the Kubernetes api-server using the local kubeconfig
-4. For logs: FastAPI streams container output via Server-Sent Events (SSE)
-5. For terminals: FastAPI establishes WebSocket connections to container processes
 `,
   },
 ];

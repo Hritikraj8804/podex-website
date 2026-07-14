@@ -70,7 +70,7 @@ export function Pricing() {
           <p className="text-muted-foreground">
             Podex is a community project.{" "}
             <a
-              href="https://github.com/your-org/podex"
+              href="https://github.com/Hritikraj8804/podex"
               target="_blank"
               rel="noopener noreferrer"
               className="font-medium text-primary underline-offset-4 hover:underline"

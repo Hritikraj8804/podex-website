@@ -1,13 +1,10 @@
-import type { Metadata } from "next";
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import { docs, docsByCategory } from "@/lib/content-data";
-import { BookOpen, ChevronRight, FileText, Search, Compass, Layers, BookMarked, Users } from "lucide-react";
-
-export const metadata: Metadata = {
-  title: "Documentation",
-  description:
-    "Learn how to install, configure, and use Podex to manage your Kubernetes clusters with a visual interface.",
-};
+import { ChevronRight, Search, Compass, Layers, BookMarked, Users } from "lucide-react";
+import { DocSidebar } from "@/components/docs-sidebar";
 
 const categoryIcons: Record<string, React.ReactNode> = {
   "Getting Started": <Compass className="h-4 w-4" />,
@@ -17,7 +14,15 @@ const categoryIcons: Record<string, React.ReactNode> = {
 };
 
 export default function DocsPage() {
+  const [query, setQuery] = useState("");
   const categories = Object.keys(docsByCategory);
+
+  const filtered = query.trim()
+    ? docs.filter((d) =>
+        d.title.toLowerCase().includes(query.toLowerCase()) ||
+        d.description.toLowerCase().includes(query.toLowerCase())
+      )
+    : null;
 
   return (
     <div className="min-h-[calc(100vh-4rem)] bg-background">
@@ -25,45 +30,7 @@ export default function DocsPage() {
         <div className="lg:grid lg:grid-cols-[260px_1fr] lg:gap-12">
           {/* Sidebar */}
           <aside className="mb-8 lg:mb-0">
-            <div className="sticky top-24 space-y-6">
-              <div>
-                <h2 className="flex items-center gap-2 text-lg font-semibold text-foreground mb-4">
-                  <BookOpen className="h-5 w-5 text-primary" />
-                  Documentation
-                </h2>
-                <div className="relative">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                  <div className="w-full rounded-lg border border-border bg-surface pl-10 pr-4 py-2.5 text-sm text-muted-foreground">
-                    Search docs...
-                  </div>
-                </div>
-              </div>
-
-              <nav className="space-y-6">
-                {categories.map((category) => (
-                  <div key={category}>
-                    <h3 className="mb-2 flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                      {categoryIcons[category]} {category}
-                    </h3>
-                    <ul className="space-y-1">
-                      {docsByCategory[category]
-                        .sort((a, b) => a.order - b.order)
-                        .map((doc) => (
-                          <li key={doc.slug}>
-                            <Link
-                              href={`/docs/${doc.slug}`}
-                              className="flex items-center gap-2 rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-surface hover:text-foreground"
-                            >
-                              <FileText className="h-4 w-4 shrink-0" />
-                              {doc.title}
-                            </Link>
-                          </li>
-                        ))}
-                    </ul>
-                  </div>
-                ))}
-              </nav>
-            </div>
+            <DocSidebar />
           </aside>
 
           {/* Main Content */}
@@ -78,36 +45,64 @@ export default function DocsPage() {
               </p>
             </div>
 
-            <div className="space-y-10">
-              {categories.map((category) => (
-                <section key={category}>
-                  <h2 className="flex items-center gap-2 text-2xl font-semibold text-foreground mb-6 pb-3 border-b border-border">
-                    {categoryIcons[category]} {category}
-                  </h2>
-                  <div className="grid gap-4 sm:grid-cols-2">
-                    {docsByCategory[category]
-                      .sort((a, b) => a.order - b.order)
-                      .map((doc) => (
-                        <Link
-                          key={doc.slug}
-                          href={`/docs/${doc.slug}`}
-                          className="group flex flex-col rounded-xl border border-border bg-card p-6 shadow-sm transition-all duration-200 hover:border-primary/30 hover:shadow-md"
-                        >
-                          <div className="flex items-start justify-between gap-2 mb-2">
-                            <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
-                              {doc.title}
-                            </h3>
-                            <ChevronRight className="h-5 w-5 shrink-0 text-muted-foreground group-hover:text-primary transition-colors mt-0.5" />
-                          </div>
-                          <p className="text-sm text-muted-foreground leading-relaxed">
-                            {doc.description}
-                          </p>
-                        </Link>
-                      ))}
-                  </div>
-                </section>
-              ))}
-            </div>
+            {filtered !== null ? (
+              filtered.length > 0 ? (
+                <div className="grid gap-4 sm:grid-cols-2">
+                  {filtered.map((doc) => (
+                    <Link
+                      key={doc.slug}
+                      href={`/docs/${doc.slug}`}
+                      className="group flex flex-col rounded-xl border border-border bg-card p-6 shadow-sm transition-all duration-200 hover:border-primary/30 hover:shadow-md"
+                    >
+                      <div className="flex items-start justify-between gap-2 mb-2">
+                        <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
+                          {doc.title}
+                        </h3>
+                        <ChevronRight className="h-5 w-5 shrink-0 text-muted-foreground group-hover:text-primary transition-colors mt-0.5" />
+                      </div>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {doc.description}
+                      </p>
+                    </Link>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-center py-12 text-muted-foreground">
+                  No docs match your search.
+                </p>
+              )
+            ) : (
+              <div className="space-y-10">
+                {categories.map((category) => (
+                  <section key={category}>
+                    <h2 className="flex items-center gap-2 text-2xl font-semibold text-foreground mb-6 pb-3 border-b border-border">
+                      {categoryIcons[category]} {category}
+                    </h2>
+                    <div className="grid gap-4 sm:grid-cols-2">
+                      {docsByCategory[category]
+                        .sort((a, b) => a.order - b.order)
+                        .map((doc) => (
+                          <Link
+                            key={doc.slug}
+                            href={`/docs/${doc.slug}`}
+                            className="group flex flex-col rounded-xl border border-border bg-card p-6 shadow-sm transition-all duration-200 hover:border-primary/30 hover:shadow-md"
+                          >
+                            <div className="flex items-start justify-between gap-2 mb-2">
+                              <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
+                                {doc.title}
+                              </h3>
+                              <ChevronRight className="h-5 w-5 shrink-0 text-muted-foreground group-hover:text-primary transition-colors mt-0.5" />
+                            </div>
+                            <p className="text-sm text-muted-foreground leading-relaxed">
+                              {doc.description}
+                            </p>
+                          </Link>
+                        ))}
+                    </div>
+                  </section>
+                ))}
+              </div>
+            )}
           </main>
         </div>
       </div>

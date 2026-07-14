@@ -35,7 +35,7 @@ export function CTA() {
                   Get Started
                 </Link>
                 <a
-                  href="https://github.com/your-org/podex"
+                  href="https://github.com/Hritikraj8804/podex"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-border bg-background px-8 text-base font-medium transition-all hover:bg-secondary hover:text-secondary-foreground"

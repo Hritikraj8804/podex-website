@@ -51,7 +51,7 @@ export default function DownloadPage() {
                     <div className="mt-3 rounded-lg border border-border bg-surface px-4 py-3 font-mono text-sm">
                       <span className="text-emerald-500">$</span>{" "}
                       <span className="text-muted-foreground">git clone</span>{" "}
-                      <span className="text-foreground">https://github.com/your-org/podex.git</span>
+                      <span className="text-foreground">https://github.com/Hritikraj8804/podex.git</span>
                       <br />
                       <span className="text-emerald-500">$</span>{" "}
                       <span className="text-foreground">cd podex</span>

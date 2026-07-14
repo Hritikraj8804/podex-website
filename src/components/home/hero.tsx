@@ -34,7 +34,7 @@ export function Hero() {
               className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-sm text-muted-foreground backdrop-blur-sm"
             >
               <span className="h-2 w-2 rounded-full bg-emerald-500" />
-              Free & Open Source — CNCF-Style Project
+              Visual Kubernetes Playground
             </motion.div>
 
             <motion.h1
@@ -83,13 +83,7 @@ export function Hero() {
               </Link>
             </motion.div>
 
-            <motion.div
-              variants={fadeUp}
-              custom={4}
-              className="mt-10 flex items-center gap-2 text-sm text-muted-foreground"
-            >
-              <CodeBlock />
-            </motion.div>
+
           </motion.div>
 
           <motion.div
@@ -109,16 +103,4 @@ export function Hero() {
   );
 }
 
-function CodeBlock() {
-  return (
-    <div className="flex w-full items-center gap-2 rounded-lg border border-border bg-card px-4 py-2.5 font-mono text-sm">
-      <span className="text-emerald-500">$</span>
-      <span className="text-muted-foreground">git clone</span>
-      <span className="text-foreground">https://github.com/your-org/podex.git</span>
-      <span className="text-muted-foreground">&&</span>
-      <span className="text-foreground">cd podex</span>
-      <span className="text-muted-foreground">&&</span>
-      <span className="text-primary">docker compose up</span>
-    </div>
-  );
-}
+

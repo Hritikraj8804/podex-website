@@ -53,7 +53,7 @@ export function FAQ() {
             <p className="mt-4 text-lg text-muted-foreground">
               Can&apos;t find what you&apos;re looking for?{" "}
               <a
-                href="https://github.com/your-org/podex/issues"
+                href="https://github.com/Hritikraj8804/podex/issues"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-medium text-primary underline-offset-4 hover:underline"
