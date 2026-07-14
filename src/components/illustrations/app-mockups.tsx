@@ -20,7 +20,7 @@ export function MockupWindow({ title, children, className }: MockupWindowProps) 
         <span className="ml-2 text-xs text-muted-foreground font-medium">{title}</span>
         <span className="ml-auto flex items-center gap-2 text-xs text-muted-foreground">
           <span className="flex h-2 w-2 rounded-full bg-emerald-500" />
-          Connected — kind-podex
+          Connected  kind-podex
         </span>
       </div>
       <div className="overflow-hidden">{children}</div>
@@ -30,7 +30,7 @@ export function MockupWindow({ title, children, className }: MockupWindowProps) 
 
 export function DashboardMockup({ className }: { className?: string }) {
   return (
-    <MockupWindow title="Podex — Dashboard" className={className}>
+    <MockupWindow title="Podex  Dashboard" className={className}>
       <div className="bg-background p-4">
         <div className="mb-4 grid grid-cols-4 gap-3">
           {[
@@ -83,7 +83,7 @@ export function PodsMockup({ className }: { className?: string }) {
   };
 
   return (
-    <MockupWindow title="Podex — Explorer" className={className}>
+    <MockupWindow title="Podex  Explorer" className={className}>
       <div className="bg-background">
         <div className="flex items-center gap-3 border-b border-border px-4 py-2">
           <div className="flex items-center gap-2 rounded-lg border border-border bg-surface px-3 py-1.5 text-xs">
@@ -160,7 +160,7 @@ export function TerminalMockup({ className }: { className?: string }) {
   ];
 
   return (
-    <MockupWindow title="Podex — Terminal" className={className}>
+    <MockupWindow title="Podex  Terminal" className={className}>
       <div className="bg-[#0d1117] p-4">
         <div className="space-y-0.5 font-mono text-xs leading-6">
           {lines.map((line, i) => (

@@ -8,7 +8,7 @@ const reasons = [
   {
     icon: Heart,
     title: "100% Free & Open Source",
-    description: "Podex is completely free to use. No paid tiers, no feature gates — just open source under a permissive license.",
+    description: "Podex is completely free to use. No paid tiers, no feature gates  just open source under a permissive license.",
     color: "from-[#f2856d] to-[#e06b54]",
   },
   {

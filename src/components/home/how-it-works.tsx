@@ -20,7 +20,7 @@ const steps = [
     number: "03",
     icon: Eye,
     title: "Explore Visually",
-    description: "Dashboard, Arena, AI Tutor — all in your browser",
+    description: "Dashboard, Arena, AI Tutor  all in your browser",
   },
 ];
 

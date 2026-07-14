@@ -55,7 +55,7 @@ export function Hero() {
             >
               Podex transforms your terminal into a drag-and-drop playground
               with live debugging, AI tutoring, and visual cluster management.
-              Zero config — just{" "}
+              Zero config  just{" "}
               <code className="rounded bg-primary/10 px-1.5 py-0.5 font-mono text-sm text-primary">
                 docker compose up
               </code>

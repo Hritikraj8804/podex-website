@@ -5,7 +5,7 @@ import { AnimatedSection } from "@/components/ui/animated-section";
 export const metadata: Metadata = {
   title: "Get Started",
   description:
-    "Get Podex running in minutes with Docker Compose. No native installers needed — just clone and run.",
+    "Get Podex running in minutes with Docker Compose. No native installers needed  just clone and run.",
 };
 
 export default function DownloadPage() {

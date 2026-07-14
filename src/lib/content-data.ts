@@ -53,8 +53,8 @@ docker compose up --build
 \`\`\`
 
 This builds and launches two services:
-1. **Frontend UI** — reachable at \`http://localhost:3000\`
-2. **Backend Daemon** — reachable at \`http://localhost:8000\`
+1. **Frontend UI**  reachable at \`http://localhost:3000\`
+2. **Backend Daemon**  reachable at \`http://localhost:8000\`
 
 ### Step 3: Open Your Browser
 
@@ -88,7 +88,7 @@ The frontend dev server runs on \`http://localhost:3000\` and connects directly 
   {
     slug: "architecture",
     title: "Architecture",
-    description: "How Podex is built — a two-tier local daemon architecture.",
+    description: "How Podex is built  a two-tier local daemon architecture.",
     category: "Getting Started",
     order: 2,
     content: `
@@ -115,14 +115,14 @@ graph TD
 ### Tier 1: React Frontend
 Built with **React**, **Vite**, **TypeScript**, and **Tailwind CSS**. Runs in the user's browser, fetching API data from the FastAPI backend. Implements a stateful client layout with tab panels:
 
-- **Dashboard** — High-level cluster stats with dynamic visual indicators
-- **Explorer** — Direct table representation of pods, deployments, and services
-- **Topology** — Dynamic SVG relationship mapping
-- **Arena** — Visual block programming canvas to model resources and generate clean YAML
-- **Concepts Tutor** — Chat-like AI companion
+- **Dashboard**  High-level cluster stats with dynamic visual indicators
+- **Explorer**  Direct table representation of pods, deployments, and services
+- **Topology**  Dynamic SVG relationship mapping
+- **Arena**  Visual block programming canvas to model resources and generate clean YAML
+- **Concepts Tutor**  Chat-like AI companion
 
 ### Tier 2: FastAPI Backend
-Built with **FastAPI** and **Python**. Acts as a proxy between the UI client and the Kubernetes api-server. **Stateless design** — all state resides inside your Kubernetes cluster.
+Built with **FastAPI** and **Python**. Acts as a proxy between the UI client and the Kubernetes api-server. **Stateless design**  all state resides inside your Kubernetes cluster.
 
 - Translates listing requests and streams logs using Server-Sent Events (SSE)
 - Establishes real-time terminal shells inside containers using WebSocket connections
@@ -161,8 +161,8 @@ kubectl cluster-info
 
 ### Prerequisites
 
-- **Docker** and **Docker Compose** — [Install Docker](https://docs.docker.com/get-docker/)
-- **Kind** or **Minikube** — [Install Kind](https://kind.sigs.k8s.io/docs/user/quick-start/) / [Install Minikube](https://minikube.sigs.k8s.io/docs/start/)
+- **Docker** and **Docker Compose**  [Install Docker](https://docs.docker.com/get-docker/)
+- **Kind** or **Minikube**  [Install Kind](https://kind.sigs.k8s.io/docs/user/quick-start/) / [Install Minikube](https://minikube.sigs.k8s.io/docs/start/)
 - A populated config file at \`~/.kube/config\`
 
 ### Running Podex
@@ -174,22 +174,22 @@ docker compose up --build
 \`\`\`
 
 This builds:
-1. **Backend container** (port \`8000\`) — Python FastAPI server
-2. **Frontend container** (port \`5173\`) — Nginx serving React app + proxying API
+1. **Backend container** (port \`8000\`)  Python FastAPI server
+2. **Frontend container** (port \`5173\`)  Nginx serving React app + proxying API
 
 Access the UI at \`http://localhost:3000\`.
 
 ### Environment Variables
 
 **Backend:**
-- \`GEMINI_API_KEY\` or \`GOOGLE_API_KEY\` — API key for Google Gemini
-- \`OPENAI_API_KEY\` — API key for OpenAI
-- \`OPENAI_BASE_URL\` — Custom endpoint for self-hosted LLM servers
-- \`OPENAI_MODEL\` — Model name (e.g. \`gpt-4o-mini\`)
-- \`DOCKER_MODE\` — Set to \`true\` in Docker to enable address patching
+- \`GEMINI_API_KEY\` or \`GOOGLE_API_KEY\`  API key for Google Gemini
+- \`OPENAI_API_KEY\`  API key for OpenAI
+- \`OPENAI_BASE_URL\`  Custom endpoint for self-hosted LLM servers
+- \`OPENAI_MODEL\`  Model name (e.g. \`gpt-4o-mini\`)
+- \`DOCKER_MODE\`  Set to \`true\` in Docker to enable address patching
 
 **Frontend:**
-- \`VITE_API_URL\` — API daemon address (default: \`http://localhost:8000\`)
+- \`VITE_API_URL\`  API daemon address (default: \`http://localhost:8000\`)
 `,
   },
   {
@@ -204,10 +204,10 @@ Access the UI at \`http://localhost:3000\`.
 The Dashboard tab gives you an instant overview of your cluster health.
 
 ### Key Metrics
-- **Nodes** — Total cluster nodes with status breakdown
-- **Pods** — Running vs total pod count
-- **Deployments** — Desired vs ready replicas
-- **Services** — Service endpoints and cluster IPs
+- **Nodes**  Total cluster nodes with status breakdown
+- **Pods**  Running vs total pod count
+- **Deployments**  Desired vs ready replicas
+- **Services**  Service endpoints and cluster IPs
 
 ### Health Donut
 A circular SVG chart renders the ratio of active running workloads to failed states, giving you a quick visual pulse check of your cluster.
@@ -231,18 +231,18 @@ The dashboard also provides a direct search bar to the AI Concept Tutor, letting
 The Explorer tab provides interactive table views for all your Kubernetes resources.
 
 ### Resource Views
-- **Pods** — Status, node, IP, restart count, age
-- **Deployments** — Desired/ready/available replicas
-- **Services** — External IPs, Cluster IPs, ports
+- **Pods**  Status, node, IP, restart count, age
+- **Deployments**  Desired/ready/available replicas
+- **Services**  External IPs, Cluster IPs, ports
 
 ### Namespace Filtering
 Use the namespace selector to filter resources. A toggle lets you include system namespaces (kube-system, etc.) when you need deeper visibility.
 
 ### Inline Actions
 Each resource row has action controls:
-- **Scale** — Adjust deployment replica count instantly
-- **Restart** — Execute rolling restarts by patching deployment annotations
-- **Delete** — Safely remove resources with a themed confirmation modal
+- **Scale**  Adjust deployment replica count instantly
+- **Restart**  Execute rolling restarts by patching deployment annotations
+- **Delete**  Safely remove resources with a themed confirmation modal
 
 ### Resource Details
 Click any pod to open a detail drawer with:
@@ -265,16 +265,16 @@ Click any pod to open a detail drawer with:
 The Arena is a sandbox grid canvas where you visually design Kubernetes architectures.
 
 ### How It Works
-1. **Drag blocks** from the toolbox — Pods, Services, Deployments, ConfigMaps, Secrets, Ingress, StatefulSets
+1. **Drag blocks** from the toolbox  Pods, Services, Deployments, ConfigMaps, Secrets, Ingress, StatefulSets
 2. **Connect them** by drawing wires between ports to establish relationship models
-3. **Edit** configurations in side drawers — forms or raw YAML
+3. **Edit** configurations in side drawers  forms or raw YAML
 4. **Apply** your design directly to the cluster
 
 ### Canvas Features
-- **Pan and Zoom** — Navigate large architectures with mouse controls
-- **Snap Grid** — Blocks align automatically for clean layouts
-- **Minimap** — See the full canvas overview
-- **Auto-Generated YAML** — Your visual design renders as valid Kubernetes manifests
+- **Pan and Zoom**  Navigate large architectures with mouse controls
+- **Snap Grid**  Blocks align automatically for clean layouts
+- **Minimap**  See the full canvas overview
+- **Auto-Generated YAML**  Your visual design renders as valid Kubernetes manifests
 
 ### Templates
 Start with a blank canvas or use pre-built templates for common patterns.
@@ -296,11 +296,11 @@ Podex provides two powerful debugging tools accessible from any pod's detail dra
 
 ### Log Streaming (SSE)
 See container logs in real time using Server-Sent Events.
-- **Live tailing** — New log lines appear as they're written
-- **Line wrap toggle** — Control log readability
-- **Timestamps** — Toggle timestamp display
-- **Tail limit** — Configure how many lines to request (default: 100)
-- **Auto-reconnect** — SSE automatically reconnects if the connection drops
+- **Live tailing**  New log lines appear as they're written
+- **Line wrap toggle**  Control log readability
+- **Timestamps**  Toggle timestamp display
+- **Tail limit**  Configure how many lines to request (default: 100)
+- **Auto-reconnect**  SSE automatically reconnects if the connection drops
 
 ### Interactive Terminal (WebSocket)
 Exec into any container directly from your browser.
@@ -337,14 +337,14 @@ When a pod is crashing, the AI Investigator can:
 2. Formulate a structured diagnosis report:
    - **Diagnosis status**: healthy, degraded, or critical
    - **Root cause explanation** in plain language
-   - **Evidence list** — bullet points of what was found
-   - **Suggested fix** — actionable resolution steps
-   - **Beginner analogy** — why it happened, in simple terms
+   - **Evidence list**  bullet points of what was found
+   - **Suggested fix**  actionable resolution steps
+   - **Beginner analogy**  why it happened, in simple terms
 
 ### Supported Providers
-- **Google Gemini** — via \`google-generativeai\` SDK
-- **OpenAI** — via \`openai\` SDK (also supports custom endpoints)
-- **Mock Fallback** — built-in sandbox providers that work offline without API keys, returning pre-compiled responses for testing
+- **Google Gemini**  via \`google-generativeai\` SDK
+- **OpenAI**  via \`openai\` SDK (also supports custom endpoints)
+- **Mock Fallback**  built-in sandbox providers that work offline without API keys, returning pre-compiled responses for testing
 `,
   },
   {
@@ -365,10 +365,10 @@ The Topology tab renders a dynamic, SVG-based map of your cluster's resource rel
 - **ConfigMaps and Secrets** linked to their consumers
 
 ### Interaction
-- **Drag to reposition** — rearrange nodes to your liking
-- **Zoom and Pan** — navigate large clusters
-- **Filter** — search hides non-matching nodes and their connections
-- **Reset View** — restores default layout and zoom
+- **Drag to reposition**  rearrange nodes to your liking
+- **Zoom and Pan**  navigate large clusters
+- **Filter**  search hides non-matching nodes and their connections
+- **Reset View**  restores default layout and zoom
 
 ### Visual Design
 - Dark tech-grid canvas background
@@ -397,8 +397,8 @@ The following preferences are stored in your browser's \`localStorage\`:
 | Accent Color | \`accentColor\` | \`peach\` | cyan, indigo, violet, emerald, amber, peach |
 | Theme | \`theme\` | \`dark\` | light, dark |
 | AI Provider | \`aiProvider\` | \`gemini\` | gemini, openai |
-| Gemini Key | \`geminiKey\` | — | Your API key |
-| OpenAI Key | \`openaiKey\` | — | Your API key |
+| Gemini Key | \`geminiKey\` |  | Your API key |
+| OpenAI Key | \`openaiKey\` |  | Your API key |
 | Refresh Interval | \`refreshInterval\` | \`8\` | Seconds between auto-refresh |
 | Log Line Wrap | \`logsLineWrap\` | \`false\` | Toggle line wrapping in logs |
 | Log Timestamps | \`logsShowTimestamps\` | \`false\` | Toggle timestamps in logs |
@@ -510,10 +510,10 @@ We welcome contributions from the community!
    \`\`\`
 
 ### Areas to Contribute
-- **Unit Tests** — The codebase needs pytest and Vitest test suites
-- **Integration Tests** — API endpoint verification against test clusters
-- **Documentation** — Improve guides and API docs
-- **Features** — Check the roadmap for in-progress items
+- **Unit Tests**  The codebase needs pytest and Vitest test suites
+- **Integration Tests**  API endpoint verification against test clusters
+- **Documentation**  Improve guides and API docs
+- **Features**  Check the roadmap for in-progress items
 
 ### Code Style
 - Python: Follow PEP 8, lint with \`ruff\`

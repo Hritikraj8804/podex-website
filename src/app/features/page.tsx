@@ -20,7 +20,7 @@ import { AnimatedSection } from "@/components/ui/animated-section";
 export const metadata: Metadata = {
   title: "Features",
   description:
-    "Explore Podex's features — visual dashboard, drag-and-drop Arena playground, AI tutor, live debugging, and topology view.",
+    "Explore Podex's features  visual dashboard, drag-and-drop Arena playground, AI tutor, live debugging, and topology view.",
 };
 
 const featureCategories = [
@@ -256,7 +256,7 @@ export default function FeaturesPage() {
               </span>
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-              Explore, design, debug, and learn Kubernetes — all from your browser.
+              Explore, design, debug, and learn Kubernetes  all from your browser.
               No terminal required, no YAML headaches.
             </p>
           </AnimatedSection>
@@ -412,7 +412,7 @@ export default function FeaturesPage() {
           <AnimatedSection className="mt-12 text-center">
             <p className="text-sm text-muted-foreground">
               Podex is the only tool that combines visual cluster management, drag-and-drop
-              architecture design, AI tutoring, and live debugging — all in your browser,
+              architecture design, AI tutoring, and live debugging  all in your browser,
               fully open source.
             </p>
           </AnimatedSection>

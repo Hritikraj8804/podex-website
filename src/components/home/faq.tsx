@@ -17,12 +17,12 @@ const faqs = [
   {
     question: "Is it a desktop app I need to install?",
     answer:
-      "No — Podex runs as a Docker Compose stack. You clone the repo, run 'docker compose up --build', and open http://localhost:5173 in your browser. No native installers, no .msi or .dmg files.",
+      "No  Podex runs as a Docker Compose stack. You clone the repo, run 'docker compose up --build', and open http://localhost:5173 in your browser. No native installers, no .msi or .dmg files.",
   },
   {
     question: "Is Podex free?",
     answer:
-      "Yes — 100% free and open source. There are no paid tiers, premium features, or subscription plans. Podex is built for the community.",
+      "Yes  100% free and open source. There are no paid tiers, premium features, or subscription plans. Podex is built for the community.",
   },
   {
     question: "Does it work with any Kubernetes cluster?",
@@ -32,12 +32,12 @@ const faqs = [
   {
     question: "Do I need a Kubernetes cluster to use it?",
     answer:
-      "Yes — Podex connects to a local Kubernetes cluster. We recommend Kind (Kubernetes-in-Docker) for beginners: 'kind create cluster --name podex'. It's free and runs on your machine.",
+      "Yes  Podex connects to a local Kubernetes cluster. We recommend Kind (Kubernetes-in-Docker) for beginners: 'kind create cluster --name podex'. It's free and runs on your machine.",
   },
   {
     question: "Do I need API keys for the AI features?",
     answer:
-      "No — Podex includes built-in mock AI providers that work offline without any API keys. If you want to use real LLMs (Gemini or OpenAI), you can add your API keys in the Settings panel.",
+      "No  Podex includes built-in mock AI providers that work offline without any API keys. If you want to use real LLMs (Gemini or OpenAI), you can add your API keys in the Settings panel.",
   },
 ];
 

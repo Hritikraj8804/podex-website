@@ -18,11 +18,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Podex — Your Visual Kubernetes Playground",
+    default: "Podex  Your Visual Kubernetes Playground",
     template: "%s | Podex",
   },
   description:
-    "Podex is a visual Kubernetes cluster examiner and interactive playground. Explore clusters, design architectures with drag-and-drop, stream logs, and learn K8s — all from your browser. Zero config, just docker compose up.",
+    "Podex is a visual Kubernetes cluster examiner and interactive playground. Explore clusters, design architectures with drag-and-drop, stream logs, and learn K8s  all from your browser. Zero config, just docker compose up.",
   keywords: [
     "Kubernetes",
     "K8s",
@@ -44,23 +44,23 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://podex.dev",
     siteName: "Podex",
-    title: "Podex — Your Visual Kubernetes Playground",
+    title: "Podex  Your Visual Kubernetes Playground",
     description:
-      "Explore clusters, design architectures with drag-and-drop, stream logs, and learn K8s — all from your browser with Podex.",
+      "Explore clusters, design architectures with drag-and-drop, stream logs, and learn K8s  all from your browser with Podex.",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Podex — Visual Kubernetes Playground",
+        alt: "Podex  Visual Kubernetes Playground",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Podex — Your Visual Kubernetes Playground",
+    title: "Podex  Your Visual Kubernetes Playground",
     description:
-      "Explore clusters, design architectures with drag-and-drop, stream logs, and learn K8s — all from your browser.",
+      "Explore clusters, design architectures with drag-and-drop, stream logs, and learn K8s  all from your browser.",
     images: ["/og-image.png"],
   },
   robots: {

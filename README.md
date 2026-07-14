@@ -1,13 +1,8 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/github/stars/Hritikraj8804/podex?style=for-the-badge&logo=github&color=f2856d">
-  <img alt="GitHub stars" src="https://img.shields.io/github/stars/Hritikraj8804/podex?style=for-the-badge&logo=github&color=f2856d">
-</picture>
-
 <div align="center">
   <br/>
   <h1>Podex</h1>
   <p><strong>Your Visual Kubernetes Playground</strong></p>
-  <p>Explore clusters, design architectures with drag-and-drop, troubleshoot with AI —<br/>all from your browser. No terminal required, no YAML headaches.</p>
+  <p>Explore clusters, design architectures with drag-and-drop, troubleshoot with AI <br/>all from your browser. No terminal required, no YAML headaches.</p>
 
   <br/>
 
@@ -17,7 +12,7 @@
 
   <br/><br/>
 
-  <a href="/download">Get Started →</a>
+  <a href="/download">Get Started</a>
   &nbsp;&nbsp;·&nbsp;&nbsp;
   <a href="/docs">Documentation</a>
   &nbsp;&nbsp;·&nbsp;&nbsp;
@@ -28,19 +23,15 @@
   <br/><br/>
 </div>
 
----
-
 ## What is Podex?
 
 Podex is a **local, visual Kubernetes cluster examiner and interactive playground** designed for beginners and students. It transforms cluster administration from a text-heavy terminal experience into an interactive, visual, and AI-toured playground.
 
 ### Why Podex?
 
-- **Visual-First** — Drag-and-drop workflow modeling canvas (the Arena) where you wire cards together and see YAML generate dynamically
-- **AI-Powered** — LLM-based concepts tutor alongside live resources. Ask *"What is a Service?"* and get analogies based on your live cluster state
-- **Zero Setup** — Containerized stack via Docker Compose that connects to any local Kubeconfig. Start in minutes
-
----
+- **Visual-First**  Drag-and-drop workflow modeling canvas (the Arena) where you wire cards together and see YAML generate dynamically
+- **AI-Powered**  LLM-based concepts tutor alongside live resources. Ask *"What is a Service?"* and get analogies based on your live cluster state
+- **Zero Setup**  Containerized stack via Docker Compose that connects to any local Kubeconfig. Start in minutes
 
 ## Quick Start
 
@@ -50,26 +41,22 @@ cd podex
 docker compose up --build
 ```
 
-Open **http://localhost:3000** in your browser.
+Open **http://localhost:5173** in your browser.
 
 > **Prerequisites:** Docker + Docker Compose and a local Kubernetes cluster (Kind, Minikube, or Docker Desktop K8s).
-
----
 
 ## Features
 
 | Feature | Description |
 |---------|-------------|
 | **Visual Dashboard** | Real-time health donut chart, metrics counters, namespace filtering |
-| **Cluster Explorer** | Interactive tables for Pods, Deployments, Services — with inline scale/restart/delete |
+| **Cluster Explorer** | Interactive tables for Pods, Deployments, Services  with inline scale/restart/delete |
 | **Arena Playground** | Drag-and-drop React Flow canvas. Wire K8s blocks together and auto-generate YAML |
 | **Topology View** | Dynamic SVG map of resource relationships (Ingress → Service → Deployment → Pod) |
 | **Live Log Streaming** | Container logs via SSE with auto-reconnect, configurable tail limits |
 | **Interactive Terminal** | WebSocket-powered shell sessions inside any container |
 | **AI Concept Tutor** | Ask questions, get real-world analogies and common pitfalls |
-| **AI Troubleshooter** | One-click diagnosis — root cause, evidence list, and fix suggestions |
-
----
+| **AI Troubleshooter** | One-click diagnosis  root cause, evidence list, and fix suggestions |
 
 ## Architecture
 
@@ -90,22 +77,20 @@ Podex is a **two-tier local daemon** running via Docker Compose:
 
 No data leaves your machine. Podex inherits your exact kubectl permissions.
 
----
-
 ```mermaid
 graph TD
     subgraph "podex/"
         A["docker-compose.yml"]
         subgraph "backend/"
-            B1["ai/ — LLM providers"]
-            B2["api/ — REST + WS endpoints"]
-            B3["kubernetes/ — K8s client"]
-            B4["services/ — Queries + AI"]
+            B1["ai/  LLM providers"]
+            B2["api/  REST + WS endpoints"]
+            B3["kubernetes/  K8s client"]
+            B4["services/  Queries + AI"]
         end
         subgraph "frontend/"
-            C1["src/components/ — UI panels"]
-            C2["App.tsx — Tab router"]
-            C3["main.tsx — Entry point"]
+            C1["src/components/  UI panels"]
+            C2["App.tsx  Tab router"]
+            C3["main.tsx  Entry point"]
         end
         subgraph "docker/"
             D1["Dockerfile.backend"]
@@ -114,8 +99,6 @@ graph TD
         end
     end
 ```
-
----
 
 ## Tech Stack
 
@@ -128,8 +111,6 @@ graph TD
 | **Containerization** | Docker, Docker Compose |
 | **Monitoring** | Prometheus, Grafana (optional) |
 
----
-
 ## Contributing
 
 We welcome contributions from developers of all experience levels.
@@ -141,16 +122,12 @@ We welcome contributions from developers of all experience levels.
 
 **Areas to help:** Unit tests (pytest + vitest), documentation, integration tests, and new features listed in the [roadmap](/docs/installation#roadmap).
 
----
-
 ## Community
 
-- 🐛 [Issues](https://github.com/Hritikraj8804/podex/issues) — Report bugs or request features
-- 💬 [Discussions](https://github.com/Hritikraj8804/podex/discussions) — Ask questions and share ideas
-- ⭐ [Star the repo](https://github.com/Hritikraj8804/podex) — Show your support
-
----
+- 🐛 [Issues](https://github.com/Hritikraj8804/podex/issues)  Report bugs or request features
+- 💬 [Discussions](https://github.com/Hritikraj8804/podex/discussions)  Ask questions and share ideas
+- ⭐ [Star the repo](https://github.com/Hritikraj8804/podex)  Show your support
 
 ## License
 
-[MIT License](LICENSE) — free to use, modify, and distribute.
+[MIT License](LICENSE)  free to use, modify, and distribute.

@@ -36,7 +36,7 @@ export default function AboutPage() {
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
               Your visual Kubernetes playground. Built to make K8s accessible, interactive, and fun
-              for everyone — especially beginners.
+              for everyone  especially beginners.
             </p>
           </AnimatedSection>
         </div>
@@ -82,7 +82,7 @@ export default function AboutPage() {
             <h2 className="text-2xl font-bold text-foreground sm:text-3xl">Our Story</h2>
             <div className="mt-6 space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                Kubernetes has become the industry standard for container orchestration — but its
+                Kubernetes has become the industry standard for container orchestration  but its
                 learning curve is brutal. YAML manifests, kubectl commands, cryptic error messages,
                 and terminal-heavy workflows create unnecessary friction for newcomers.
               </p>
@@ -93,12 +93,12 @@ export default function AboutPage() {
               <p>
                 Podex was born as a local, visual Kubernetes cluster examiner. We started with a
                 dashboard and explorer, then added the Arena (drag-and-drop playground), the AI
-                Concept Tutor, live debugging tools, and topology visualization — all designed
+                Concept Tutor, live debugging tools, and topology visualization  all designed
                 around one principle: <strong>make K8s visual and interactive</strong>.
               </p>
               <p>
                 Today Podex runs entirely via Docker Compose. No data leaves your machine. It
-                inherits your exact kubectl permissions. And it works with any local cluster — Kind,
+                inherits your exact kubectl permissions. And it works with any local cluster  Kind,
                 Minikube, or Docker Desktop K8s.
               </p>
               <p>
@@ -124,7 +124,7 @@ export default function AboutPage() {
                 icon: Puzzle,
                 title: "Visual-First",
                 description:
-                  "A drag-and-drop workflow modeling canvas (the Arena) where you wire cards together and see YAML generate dynamically — no typing YAML manually.",
+                  "A drag-and-drop workflow modeling canvas (the Arena) where you wire cards together and see YAML generate dynamically  no typing YAML manually.",
               },
               {
                 icon: Sparkles,
@@ -168,7 +168,7 @@ export default function AboutPage() {
             <div className="mt-4 max-w-3xl space-y-4 text-muted-foreground leading-relaxed">
               <p>
                 Podex is 100% free and open source. No paid tiers, no premium features, no
-                enterprise upsells — just a tool built to help people learn Kubernetes.
+                enterprise upsells  just a tool built to help people learn Kubernetes.
               </p>
               <p>
                 Every decision, design trade-off, and feature discussion happens in public.
@@ -176,7 +176,7 @@ export default function AboutPage() {
               </p>
               <p>
                 We welcome contributions from developers of all experience levels. Whether it&apos;s
-                a bug report, documentation improvement, or new feature — your input makes Podex
+                a bug report, documentation improvement, or new feature  your input makes Podex
                 better for everyone.
               </p>
             </div>

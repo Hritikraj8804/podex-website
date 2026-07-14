@@ -29,7 +29,7 @@ const testimonials = [
   },
   {
     quote:
-      "Being able to exec into pods and stream logs from a browser — for free — is amazing for a learner like me.",
+      "Being able to exec into pods and stream logs from a browser  for free  is amazing for a learner like me.",
     name: "Elena Torres",
     role: "Junior Platform Engineer",
     avatar: "ET",

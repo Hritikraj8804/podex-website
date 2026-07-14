@@ -41,7 +41,7 @@ export function Footer() {
               <span className="text-xl font-bold">Podex</span>
             </Link>
             <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
-              Your visual Kubernetes playground. Explore clusters, design architectures, and learn K8s — all from your browser.
+              Your visual Kubernetes playground. Explore clusters, design architectures, and learn K8s  all from your browser.
             </p>
           </div>
 
