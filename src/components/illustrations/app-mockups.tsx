@@ -29,37 +29,99 @@ export function MockupWindow({ title, children, className }: MockupWindowProps) 
 }
 
 export function DashboardMockup({ className }: { className?: string }) {
+  const pods = [
+    { name: "web", ns: "default", status: "Running" },
+    { name: "api", ns: "default", status: "Running" },
+    { name: "db", ns: "default", status: "Running" },
+    { name: "cache", ns: "prod", status: "Running" },
+    { name: "worker", ns: "prod", status: "Pending" },
+    { name: "batch", ns: "prod", status: "Failed" },
+  ];
+  const matrixPods = [
+    "green", "green", "amber", "green", "green", "red",
+    "green", "green", "green", "amber", "green", "green",
+    "green", "red", "green", "green", "amber", "green",
+    "green", "green", "green", "green", "green", "amber",
+  ];
+
   return (
     <MockupWindow title="Podex  Dashboard" className={className}>
-      <div className="bg-background p-4">
-        <div className="mb-4 grid grid-cols-4 gap-3">
-          {[
-            { label: "Nodes", value: "3", color: "text-emerald-500" },
-            { label: "Pods", value: "24", color: "text-blue-500" },
-            { label: "Deployments", value: "12", color: "text-emerald-500" },
-            { label: "Services", value: "8", color: "text-cyan-500" },
-          ].map((stat) => (
-            <div key={stat.label} className="rounded-lg border border-border bg-surface p-3 text-center">
-              <div className={`text-2xl font-bold ${stat.color}`}>{stat.value}</div>
-              <div className="mt-1 text-xs text-muted-foreground">{stat.label}</div>
-            </div>
-          ))}
+      <div className="bg-background">
+        <div className="bg-gradient-to-br from-primary/10 via-accent/5 to-transparent px-4 pt-4 pb-6">
+          <div className="mb-1 flex items-center gap-2">
+            <span className="flex h-2 w-2 rounded-full bg-emerald-500" />
+            <span className="text-xs font-medium text-emerald-500">kind-podex</span>
+            <span className="text-xs text-muted-foreground ml-auto">v1.2.0</span>
+          </div>
+          <div className="grid grid-cols-4 gap-2 mt-4">
+            {[
+              { label: "Nodes", value: "3", icon: "●" },
+              { label: "Pods", value: "24", icon: "◆" },
+              { label: "Deployments", value: "12", icon: "■" },
+              { label: "Services", value: "8", icon: "▲" },
+            ].map((s) => (
+              <div key={s.label} className="rounded-lg border border-border/60 bg-card/80 p-2.5 text-center backdrop-blur-sm">
+                <div className="text-xs text-muted-foreground">{s.label}</div>
+                <div className="text-xl font-bold text-foreground">{s.value}</div>
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="flex items-center gap-4 rounded-lg border border-border bg-surface p-4">
-          <svg viewBox="0 0 80 80" className="h-20 w-20 shrink-0">
-            <circle cx="40" cy="40" r="35" fill="none" stroke="#334155" strokeWidth="8" className="opacity-20" />
-            <circle cx="40" cy="40" r="35" fill="none" stroke="#10b981" strokeWidth="8" strokeDasharray="183.3 36.7" strokeDashoffset="0" transform="rotate(-90, 40, 40)" />
-            <circle cx="40" cy="40" r="35" fill="none" stroke="#f59e0b" strokeWidth="8" strokeDasharray="18.3 201.7" strokeDashoffset="183.3" transform="rotate(-90, 40, 40)" />
-            <circle cx="40" cy="40" r="35" fill="none" stroke="#ef4444" strokeWidth="8" strokeDasharray="18.3 201.7" strokeDashoffset="201.7" transform="rotate(-90, 40, 40)" />
-          </svg>
-          <div>
-            <div className="text-sm font-medium text-foreground">Cluster Health</div>
-            <div className="mt-1 text-xs text-muted-foreground">20 Running · 2 Pending · 2 Failed</div>
-            <div className="mt-2 flex gap-3 text-xs">
-              <span className="flex items-center gap-1"><span className="h-2 w-2 rounded-full bg-emerald-500" /> Healthy</span>
-              <span className="flex items-center gap-1"><span className="h-2 w-2 rounded-full bg-yellow-500" /> Warning</span>
-              <span className="flex items-center gap-1"><span className="h-2 w-2 rounded-full bg-red-500" /> Critical</span>
+
+        <div className="grid grid-cols-3 gap-3 px-4 py-3">
+          <div className="col-span-2 rounded-lg border border-border bg-surface p-3">
+            <div className="flex items-center gap-4">
+              <svg viewBox="0 0 72 72" className="h-16 w-16 shrink-0">
+                <circle cx="36" cy="36" r="30" fill="none" stroke="currentColor" strokeWidth="6" className="text-border/50" />
+                <circle cx="36" cy="36" r="30" fill="none" stroke="#10b981" strokeWidth="6" strokeDasharray="157 31" strokeDashoffset="0" transform="rotate(-90, 36, 36)" />
+                <circle cx="36" cy="36" r="30" fill="none" stroke="#f59e0b" strokeWidth="6" strokeDasharray="16 172" strokeDashoffset="157" transform="rotate(-90, 36, 36)" />
+                <circle cx="36" cy="36" r="30" fill="none" stroke="#ef4444" strokeWidth="6" strokeDasharray="16 172" strokeDashoffset="173" transform="rotate(-90, 36, 36)" />
+              </svg>
+              <div>
+                <div className="text-xs font-semibold text-foreground">Cluster Health</div>
+                <div className="text-[10px] text-muted-foreground mt-0.5">20 Running · 2 Pending · 2 Failed</div>
+                <div className="flex gap-2 mt-1.5">
+                  <span className="flex items-center gap-1 text-[10px]"><span className="h-1.5 w-1.5 rounded-full bg-emerald-500" /> Healthy</span>
+                  <span className="flex items-center gap-1 text-[10px]"><span className="h-1.5 w-1.5 rounded-full bg-amber-500" /> Warning</span>
+                  <span className="flex items-center gap-1 text-[10px]"><span className="h-1.5 w-1.5 rounded-full bg-red-500" /> Critical</span>
+                </div>
+              </div>
             </div>
+          </div>
+
+          <div className="rounded-lg border border-border bg-surface p-3">
+            <div className="text-xs font-semibold text-foreground mb-2">Needs Attention</div>
+            <div className="space-y-1.5">
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] text-muted-foreground">worker</span>
+                <span className="text-[10px] text-amber-500 font-medium">Pending</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] text-muted-foreground">batch</span>
+                <span className="text-[10px] text-red-500 font-medium">CrashLoop</span>
+              </div>
+              <div className="flex items-center justify-between">
+                <span className="text-[10px] text-muted-foreground">test-app</span>
+                <span className="text-[10px] text-red-500 font-medium">Error</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="px-4 pb-4">
+          <div className="text-xs font-semibold text-foreground mb-2">Pod Status Matrix</div>
+          <div className="grid grid-cols-8 gap-1">
+            {matrixPods.map((color, i) => (
+              <div
+                key={i}
+                className={`h-5 rounded-sm ${
+                  color === "green" ? "bg-emerald-500/70" :
+                  color === "amber" ? "bg-amber-500/70" :
+                  "bg-red-500/70"
+                }`}
+                title={`Pod ${i + 1}`}
+              />
+            ))}
           </div>
         </div>
       </div>

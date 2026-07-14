@@ -1,28 +1,20 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { cn } from "@/lib/utils";
-import {
-  DashboardMockup,
-  PodsMockup,
-  TerminalMockup,
-} from "@/components/illustrations/app-mockups";
 
 const tabs = [
   { id: "dashboard", label: "Dashboard" },
-  { id: "pods", label: "Explorer" },
-  { id: "terminal", label: "Terminal" },
+  { id: "explorer", label: "Explorer" },
+  { id: "topology", label: "Topology" },
+  { id: "arena", label: "Arena" },
+  { id: "yaml", label: "YAML" },
 ] as const;
 
 type TabId = (typeof tabs)[number]["id"];
-
-const mockups: Record<TabId, React.ComponentType<{ className?: string }>> = {
-  dashboard: DashboardMockup,
-  pods: PodsMockup,
-  terminal: TerminalMockup,
-};
 
 export function Screenshots() {
   const [activeTab, setActiveTab] = useState<TabId>("dashboard");
@@ -49,7 +41,7 @@ export function Screenshots() {
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
                   className={cn(
-                    "relative rounded-md px-6 py-2.5 text-sm font-medium transition-colors",
+                    "relative rounded-md px-5 py-2.5 text-sm font-medium transition-colors",
                     activeTab === tab.id
                       ? "text-foreground"
                       : "text-muted-foreground hover:text-foreground"
@@ -70,18 +62,57 @@ export function Screenshots() {
 
           <div className="relative mt-10 overflow-hidden rounded-2xl border border-border/50 bg-card/80 p-2 shadow-2xl backdrop-blur-sm">
             <AnimatePresence mode="wait">
-              <motion.div
-                key={activeTab}
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -12 }}
-                transition={{ duration: 0.3 }}
-              >
-                {(() => {
-                  const Mockup = mockups[activeTab];
-                  return <Mockup />;
-                })()}
-              </motion.div>
+              {activeTab === "yaml" ? (
+                <motion.div
+                  key="yaml"
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -12 }}
+                  transition={{ duration: 0.3 }}
+                  className="grid grid-cols-2 gap-2"
+                >
+                  <div className="overflow-hidden rounded-lg border border-border">
+                    <div className="border-b border-border bg-surface px-3 py-2 text-xs font-medium text-muted-foreground">
+                      Pod UI Config
+                    </div>
+                    <Image
+                      src="/pod ui config.jpg"
+                      alt="Pod UI Config"
+                      width={600}
+                      height={400}
+                      className="w-full h-auto"
+                    />
+                  </div>
+                  <div className="overflow-hidden rounded-lg border border-border">
+                    <div className="border-b border-border bg-surface px-3 py-2 text-xs font-medium text-muted-foreground">
+                      Pod YAML Config
+                    </div>
+                    <Image
+                      src="/pod yaml config.jpg"
+                      alt="Pod YAML Config"
+                      width={600}
+                      height={400}
+                      className="w-full h-auto"
+                    />
+                  </div>
+                </motion.div>
+              ) : (
+                <motion.div
+                  key={activeTab}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -12 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <Image
+                    src={`/${activeTab === "arena" ? "areana" : activeTab === "topology" ? "cluster-topolgy" : activeTab}.jpg`}
+                    alt={`${activeTab.charAt(0).toUpperCase() + activeTab.slice(1)} screenshot`}
+                    width={1200}
+                    height={675}
+                    className="w-full h-auto rounded-lg"
+                  />
+                </motion.div>
+              )}
             </AnimatePresence>
           </div>
         </AnimatedSection>

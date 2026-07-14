@@ -1,60 +1,69 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { useTheme } from "next-themes";
+import { Check, Copy } from "lucide-react";
 
 export function DocContent({ html }: { html: string }) {
   const ref = useRef<HTMLDivElement>(null);
-  const { resolvedTheme } = useTheme();
 
   useEffect(() => {
     if (!ref.current) return;
-    const blocks = ref.current.querySelectorAll<HTMLElement>("pre code.language-mermaid");
-    if (blocks.length === 0) return;
 
-    const isDark = resolvedTheme === "dark";
+    const root = ref.current;
 
-    import("mermaid").then((mermaid) => {
-      mermaid.default.initialize({
-        theme: "base",
-        themeVariables: {
-          background: "transparent",
-          primaryColor: isDark ? "#1e40af" : "#2563eb",
-          primaryBorderColor: isDark ? "#3b82f6" : "#1d4ed8",
-          primaryTextColor: "#ffffff",
-          secondaryColor: isDark ? "#155e75" : "#06b6d4",
-          secondaryBorderColor: isDark ? "#22d3ee" : "#0891b2",
-          secondaryTextColor: "#ffffff",
-          tertiaryColor: isDark ? "#1e293b" : "#f1f5f9",
-          tertiaryBorderColor: isDark ? "#475569" : "#cbd5e1",
-          tertiaryTextColor: isDark ? "#e2e8f0" : "#0f172a",
-          lineColor: isDark ? "#64748b" : "#94a3b8",
-          fontFamily: "Geist, system-ui, sans-serif",
-          fontSize: "14px",
-          edgeLabelBackground: isDark ? "#1e293b" : "#f8fafc",
-          nodeBorder: isDark ? "#475569" : "#cbd5e1",
-        },
-        flowchart: {
-          useMaxWidth: true,
-          htmlLabels: true,
-          curve: "basis",
-        },
+    // Render mermaid diagrams
+    const mermaidBlocks = root.querySelectorAll<HTMLElement>("pre code.language-mermaid");
+    if (mermaidBlocks.length > 0) {
+      const isDark = document.documentElement.classList.contains("dark");
+      import("mermaid").then((mermaid) => {
+        mermaid.default.initialize({
+          theme: isDark ? "dark" : "neutral",
+          flowchart: { useMaxWidth: true, htmlLabels: true, curve: "basis", padding: 16 },
+        });
+        mermaidBlocks.forEach((block, i) => {
+          const pre = block.parentElement;
+          if (!pre) return;
+          const id = `mermaid-${i}`;
+          const chart = block.textContent || "";
+          pre.innerHTML = `<div class="mermaid" id="${id}">${chart}</div>`;
+          try {
+            mermaid.default.run({ nodes: [document.getElementById(id)!] });
+          } catch {
+            pre.innerHTML = `<div class="text-sm text-muted-foreground p-4 border border-border rounded-lg">Failed to render diagram</div>`;
+          }
+        });
       });
+    }
 
-      blocks.forEach((block, i) => {
-        const pre = block.parentElement;
-        if (!pre) return;
-        const id = `mermaid-${i}`;
-        const chart = block.textContent || "";
-        pre.innerHTML = `<div class="mermaid" id="${id}">${chart}</div>`;
+    // Add copy buttons to code blocks
+    const pres = root.querySelectorAll<HTMLElement>("pre");
+    pres.forEach((pre) => {
+      if (pre.querySelector(".copy-btn")) return;
+      if (pre.querySelector(".mermaid")) return;
+
+      const btn = document.createElement("button");
+      btn.className = "copy-btn absolute top-2 right-2 flex h-7 w-7 items-center justify-center rounded-md border border-border bg-background/80 text-muted-foreground opacity-0 transition-opacity hover:text-foreground group-hover:opacity-100";
+      btn.innerHTML = `<svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>`;
+
+      pre.classList.add("group", "relative");
+      pre.style.overflow = "hidden";
+      pre.appendChild(btn);
+
+      btn.addEventListener("click", async () => {
+        const code = pre.querySelector("code");
+        const text = code?.textContent || "";
         try {
-          mermaid.default.run({ nodes: [document.getElementById(id)!] });
+          await navigator.clipboard.writeText(text);
+          btn.innerHTML = `<svg class="h-3.5 w-3.5 text-emerald-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>`;
+          setTimeout(() => {
+            btn.innerHTML = `<svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>`;
+          }, 2000);
         } catch {
-          pre.innerHTML = `<div class="text-sm text-muted-foreground p-4 border border-border rounded-lg">Failed to render diagram</div>`;
+          // clipboard not available
         }
       });
     });
-  }, [html, resolvedTheme]);
+  }, [html]);
 
   return (
     <div
