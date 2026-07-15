@@ -80,31 +80,34 @@ export default function AboutPage() {
             <div className="mb-4 inline-flex rounded-lg bg-primary/10 p-3">
               <BookOpen className="h-6 w-6 text-primary" aria-hidden="true" />
             </div>
-            <h2 className="text-2xl font-bold text-foreground sm:text-3xl">Our Story</h2>
+            <h2 className="text-2xl font-bold text-foreground sm:text-3xl">Our Goal</h2>
             <div className="mt-6 space-y-4 text-muted-foreground leading-relaxed">
               <p>
-                Kubernetes has become the industry standard for container orchestration  but its
-                learning curve is brutal. YAML manifests, kubectl commands, cryptic error messages,
-                and terminal-heavy workflows create unnecessary friction for newcomers.
+                Kubernetes is powerful, but let's be honest  it's intimidating. YAML manifests,
+                kubectl commands, cryptic errors, and terminal-heavy workflows make it feel
+                like you need a year of DevOps experience just to deploy a simple app.
               </p>
               <p>
-                We asked a simple question: <em>what if learning Kubernetes felt like playing with
-                building blocks instead of decoding a terminal?</em>
+                <strong>Podex is built for freshers and beginners.</strong> Not for production
+                engineers managing thousands of nodes. Not for SREs debugging mesh networks.
+                For students, hobbyists, and anyone who just wants to <em>learn Kubernetes</em>
+                without getting lost in the complexity.
               </p>
               <p>
-                Podex was born as a local, visual Kubernetes cluster examiner. We started with a
-                dashboard and explorer, then added the Arena (drag-and-drop playground), the AI
-                Concept Tutor, live debugging tools, and topology visualization  all designed
-                around one principle: <strong>make K8s visual and interactive</strong>.
+                We don't deal with complex multi-cluster setups, enterprise RBAC policies,
+                or advanced networking. We deal with <strong>Minikube, Kind, and Docker Desktop
+                K8s</strong>  the tools beginners actually use to practice. If you're running
+                a production cluster with thousands of pods, Podex probably isn't for you
+                (and honestly, you don't need us).
               </p>
               <p>
-                Today Podex runs entirely via Docker Compose. No data leaves your machine. It
-                inherits your exact kubectl permissions. And it works with any local cluster  Kind,
-                Minikube, or Docker Desktop K8s.
+                Everything we build  the visual dashboard, the drag-and-drop Arena, the AI
+                Concept Tutor  is designed around one question: <em>"How do I make Kubernetes
+                click for someone who's never touched it before?"</em>
               </p>
               <p>
-                We're early, open source, and building for the community. If you're learning
-                Kubernetes, Podex is for you.
+                If you're learning K8s and you have a local cluster, you're exactly who we built
+                this for.
               </p>
             </div>
           </AnimatedSection>

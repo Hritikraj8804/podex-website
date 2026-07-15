@@ -15,6 +15,7 @@ const categoryIcons: Record<string, React.ReactNode> = {
 
 export default function DocsPage() {
   const [query, setQuery] = useState("");
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const categories = Object.keys(docsByCategory);
 
   const filtered = query.trim()
@@ -28,8 +29,15 @@ export default function DocsPage() {
     <div className="min-h-[calc(100vh-4rem)] bg-background">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
         <div className="lg:grid lg:grid-cols-[260px_1fr] lg:gap-12">
-          {/* Sidebar */}
-          <aside className="mb-8 lg:mb-0">
+          <button
+            onClick={() => setSidebarOpen(!sidebarOpen)}
+            className="flex items-center gap-2 text-sm font-medium text-primary mb-4 lg:hidden"
+          >
+            <svg className={`h-4 w-4 transition-transform ${sidebarOpen ? "rotate-90" : ""}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" /></svg>
+            {sidebarOpen ? "Hide sidebar" : "Show documentation list"}
+          </button>
+
+          <aside className={`${sidebarOpen ? "block" : "hidden"} lg:block mb-8 lg:mb-0`}>
             <DocSidebar />
           </aside>
 

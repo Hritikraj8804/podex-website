@@ -4,7 +4,7 @@ import { navigation } from "@/lib/content-data";
 
 const footerLinks = {
   product: [
-    { title: "Features", href: "/features" },
+    { title: "Pricing", href: "/pricing" },
     { title: "Download", href: "/download" },
     { title: "Documentation", href: "/docs" },
   ],
