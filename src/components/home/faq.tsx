@@ -17,7 +17,7 @@ const faqs = [
   {
     question: "Is it a desktop app I need to install?",
     answer:
-      "No  Podex runs as a Docker Compose stack. You clone the repo, run 'docker compose up --build', and open http://localhost:5173 in your browser. No native installers, no .msi or .dmg files.",
+      "No  Podex runs as a Docker Compose stack. You clone the repo, run 'docker compose up --build', and open http://localhost:3000 in your browser. No native installers, no .msi or .dmg files.",
   },
   {
     question: "Is Podex free?",
@@ -27,7 +27,7 @@ const faqs = [
   {
     question: "Does it work with any Kubernetes cluster?",
     answer:
-      "Yes. Podex loads your active context from ~/.kube/config and supports any cluster authentication scheme: local certificates, OIDC tokens, username/password, and AWS IAM Authenticator. It works with Kind, Minikube, Docker Desktop K8s, EKS, GKE, AKS, and more.",
+      "We focus on beginners with limited resources who run Minikube or Kind for practice. Podex works great with local clusters like Kind, Minikube, and Docker Desktop K8s. While it can technically connect to other clusters, our design and testing is optimized for local learning environments  not production-grade setups.",
   },
   {
     question: "Do I need a Kubernetes cluster to use it?",
