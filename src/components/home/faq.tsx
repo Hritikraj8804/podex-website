@@ -17,7 +17,7 @@ const faqs = [
   {
     question: "Is it a desktop app I need to install?",
     answer:
-      "No  Podex runs as a Docker Compose stack. You clone the repo, run 'docker compose up --build', and open http://localhost:3000 in your browser. No native installers, no .msi or .dmg files.",
+      "No  Podex runs as a Docker Compose stack. You clone the repo, run 'docker compose up --build', and open http://localhost:3456 in your browser. No native installers, no .msi or .dmg files.",
   },
   {
     question: "Is Podex free?",

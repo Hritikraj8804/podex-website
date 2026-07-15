@@ -17,7 +17,7 @@ const steps = [
     number: "03",
     icon: Eye,
     title: "Explore Visually",
-    description: "Dashboard, Arena, AI Tutor, and live debugging  all in your browser at localhost:3000.",
+    description: "Dashboard, Arena, AI Tutor, and live debugging  all in your browser at localhost:3456.",
   },
 ];
 
