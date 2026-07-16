@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/layout/theme-provider";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { CommandPalette } from "@/components/command-palette";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -46,7 +47,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://podex.dev",
+    url: "https://podex.in",
     siteName: "Podex",
     title: "Podex  Your Visual Kubernetes Playground",
     description:
@@ -97,6 +98,7 @@ export default function RootLayout({
           <CommandPalette />
           <main className="flex-1 pt-16">{children}</main>
           <Footer />
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
