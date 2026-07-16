@@ -9,6 +9,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/", "/admin/"],
       },
     ],
-    sitemap: "https://podex.dev/sitemap.xml",
+    sitemap: "https://podex.in/sitemap.xml",
   };
 }
