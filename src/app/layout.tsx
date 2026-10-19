@@ -3,7 +3,6 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/layout/theme-provider";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
-import { CommandPalette } from "@/components/command-palette";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
@@ -95,7 +94,6 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col antialiased">
         <ThemeProvider>
           <Navbar />
-          <CommandPalette />
           <main className="flex-1 pt-16">{children}</main>
           <Footer />
           <Analytics />
